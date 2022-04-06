@@ -1,0 +1,148 @@
+@import '../../../assets/grid.scss';
+  
+.collectionItemContainer {
+  margin-bottom: 100px;
+  margin-left: 5%;
+  margin-right: 5%;
+
+  @include sm-width {
+    width: 400px;
+  }
+
+  @include md-width {
+    width: 500px;
+  }
+
+  @include lg-width {
+    width: 350px;
+  }
+
+  @include xl-width {
+    width: 400px;
+  }
+
+  @include xxl-width {
+    width: 500px;
+  }
+
+  .collectionContent {
+    position: relative;
+    padding: 12px;
+
+    .collectionTitle {
+      font-family: 'NewYork';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 44px;
+      background-color: transparent;
+      margin-bottom: 20px;
+      color: var(--blue);
+    
+      // & span {
+      //   @apply bg-primary text-primary;
+      //   font-size: inherit;
+      //   letter-spacing: inherit;
+      //   box-decoration-break: clone;
+      //   -webkit-box-decoration-break: clone;
+      //   background-color: transparent;
+      //   color: white;
+      //   flex-wrap: wrap;
+      // }
+    }
+
+    .root {
+      @apply relative max-h-full w-full box-border overflow-hidden
+      bg-no-repeat bg-center bg-cover transition-transform
+      ease-linear cursor-pointer;
+      height: 100% !important;
+  
+      .imageContainer {
+        @apply flex items-center justify-center;
+        overflow: hidden;
+        border-radius: 2rem;
+      
+        & > div {
+          min-width: 100%;
+        }
+      
+        width: 300px;
+        position: relative;
+        z-index: 100;
+        border: 3px solid var(--blue);
+      
+        @include sm-width {
+          width: 400px;
+        }
+      
+        @include md-width {
+          width: 500px;
+        }
+      
+        @include lg-width {
+          width: 350px;
+        }
+      
+        @include xl-width {
+          width: 400px;
+        }
+      
+        @include xxl-width {
+          width: 500px;
+        }
+  
+        .collectionImage {
+          @apply transform transition-transform duration-500 object-cover scale-120;
+        }
+      }
+    }
+  
+    .collectionPriceSection {
+      margin-top: 20px;
+      width: 100%;
+      background-color: transparent;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  
+      .btnPrice {
+        padding: 8px 25px;
+        background-color: var(--blue);
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        position: relative;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
+
+        transition: 0.3s all;
+        &:hover {
+          transition: 0.3s all;
+          transform: scale(1.1);
+        }
+      
+        span {
+          font-family: 'LEMON MILK';
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 136%;
+          text-align: center;
+      
+          color: #FFFFFF;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+  
+        @include lg-width {
+          span {
+            font-size: 30px;
+          }
+        }
+      }
+    }
+      
+  }
+}

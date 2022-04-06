@@ -1,0 +1,97 @@
+.root {
+  @apply h-full bg-yellow mx-auto transition-colors duration-150;
+  max-width: 2460px;
+  position: relative;
+  z-index: 10;
+}
+
+.collection1 {
+
+}
+
+.collection2 {
+
+}
+
+.aave {
+
+}
+
+.instadapp {
+
+}
+
+.ruler {
+  
+}
+
+.poap {
+
+}
+
+.force {
+
+}
+
+.zerion {
+
+}
+
+.zapper {
+  
+}
+
+.polygon {
+
+}
+
+.opyn {
+  
+}
+
+.pickle {
+  
+}
+
+.rari {
+  
+}
+
+.maker {
+  
+}
+
+.bancor {
+  
+}
+
+.look {
+  
+}
+
+.glitch {
+  
+}
+
+.marketplace {
+  
+}
+
+.mainWrapper {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: top;
+}
+
+@media (max-width: 576px) {
+  .mainWrapper {
+    background-size: 100vw 100vh;
+  }
+}
+
+.backgroundImage {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+}

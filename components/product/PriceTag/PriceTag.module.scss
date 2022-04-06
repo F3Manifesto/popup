@@ -1,0 +1,98 @@
+@import '../../../assets/grid.scss';
+
+.priceTagWrapper {
+  margin: auto;
+  .mainText {
+    text-transform: uppercase;
+    text-align: center;
+    word-wrap: normal;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    position: relative;
+
+
+    p {
+      font-family: 'LEMON MILK';
+      font-size: 20px;
+      color: white;
+      -webkit-text-stroke: 0.5px var(--blue);
+      font-weight: 600;
+      
+  
+      span {
+        font-weight: normal;
+      }
+  
+      @include md-width {
+        font-size: 20px;
+      }
+  
+      @include lg-width {
+        font-size: 22px;
+      }
+  
+      @include xxl-width {
+        font-size: 30px;
+      }  
+    }
+    
+    .backImage {
+      width: 100%;
+    }
+  }
+
+  .subText {
+    font-family: LEMON MILK;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 9px;
+    text-transform: uppercase;
+    line-height: 11px;
+    /* identical to box height */
+
+    letter-spacing: 0.56em;
+    padding-left: 0.56em;
+    margin: auto;
+    text-align: center;
+    white-space: nowrap;
+    color: var(--blue);
+  }
+
+  &.hasBackImage {
+
+    .mainText { 
+      padding-left: 0;
+      padding-right: 0;
+      p {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-family: Oswald;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 20px;
+
+        span {
+          margin-left: 5px;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .subText { 
+      margin-top: 2px;
+      font-weight: 800;
+      font-size: 10px;
+      // line-height: 17px;
+      letter-spacing: 0.56em;
+    }
+  }
+
+  
+}

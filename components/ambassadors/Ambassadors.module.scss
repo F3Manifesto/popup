@@ -1,0 +1,56 @@
+.background {
+  background-image: url('../../public/images/ambassador.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  @media (min-width: 1250px) {
+    padding: 12.5rem 25rem;
+  }
+
+  @media (max-width: 768px) and (min-width: 586px) {
+    padding: 5rem 7.5rem;
+  }
+
+  @media (min-width: 768px) and (max-width: 1250px) {
+    padding: 7.5rem 10rem;
+  }
+
+  @media (max-width: 586px) {
+    padding: 1.5rem;
+  }
+}
+
+.blackBox {
+  padding: 3rem;
+
+  .title {
+    font-size: 33px;
+    text-decoration: underline;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+
+  .requestButton {
+    padding: .5rem 2rem;
+    background-color: #5DA6E3;
+    border: 1px solid #534C4C;
+    box-sizing: border-box;
+    color: white;
+    font-size: 19px;
+    font-weight: 900;
+  }
+
+  ul {
+    margin-top: 1.5rem;
+  }
+
+  ul li {
+    list-style: disc;
+    width: fit-content;
+    margin: auto;
+  }
+}

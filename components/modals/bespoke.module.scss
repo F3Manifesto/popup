@@ -1,0 +1,16 @@
+.bespokeWrapper {
+  width: 250px;
+
+  @media (min-width: 470px) {
+    width: 350px;
+  }
+
+  @media (min-width: 910px) {
+    width: 800px;
+  }
+
+  .description {
+    margin-bottom: 20px !important;
+    
+  }
+}

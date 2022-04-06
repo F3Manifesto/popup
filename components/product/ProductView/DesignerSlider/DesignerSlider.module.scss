@@ -1,0 +1,39 @@
+.wrapper {
+  width: 100%;
+  position: relative;
+  height: 120px;
+
+  .designerItem {
+    // width: 25%;
+  }
+
+  .arrowRight {
+    width: 10px;
+    height: 20px;
+    border-left: solid 10px black;
+    border-bottom: solid 10px transparent;
+    border-top: solid 10px transparent;
+  }
+
+  .arrowLeft {
+    width: 10px;
+    height: 20px;
+    border-right: solid 10px black;
+    border-bottom: solid 10px transparent;
+    border-top: solid 10px transparent;
+  }
+
+  .arrowLeftButton {
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    outline: none;
+  }
+
+  .arrowRightButton {
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    outline: none;
+  }
+}

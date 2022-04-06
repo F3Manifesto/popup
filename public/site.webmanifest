@@ -1,0 +1,21 @@
+{
+  "name": "DRIP",
+  "short_name": "Hybrid Digital-Physical NFT Fashion Line",
+  "description": "The first digi-physical NFT fashion line, minted on Matic Network, REP IRL.",
+  "display": "standalone",
+  "start_url": "/",
+  "theme_color": "#fff",
+  "background_color": "#000000",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "type": "Screen Shot 2021-05-27 at 5.17.18 PM.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "type": "Screen Shot 2021-05-27 at 5.17.18 PM.png",
+      "sizes": "512x512"
+    }
+  ]

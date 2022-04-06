@@ -1,0 +1,60 @@
+@import '../../assets/grid.scss';
+
+.wrapper {
+  margin: auto;
+  position: relative;
+  background: var(--yellow);
+  background-size: fill;
+  padding: 50px 1rem 100px;
+  min-height: 800px;
+
+  @include sm-width {
+    padding: 70px 0 120px;
+    width: unset;
+  }
+
+  .returnButton {
+    width: 154px;
+    height: 41px;
+    
+    background: var(--blue);
+    color: var(--yellow);
+    border: none;    
+    margin-left: 10%;
+
+    font-family: 'LEMON MILK';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    transition: 0.3s all;
+    &:hover {
+      transform: scale(1.1);
+      transition: 0.3s all;
+    }
+  }
+
+  .digitalChangingRoom {
+    margin-top: 100px;
+  }
+
+  .loader {
+    margin: auto;
+  }
+
+  .notValidUser {
+    margin: auto;
+    color: white;
+    text-align: center;
+
+    font-family: Gilroy;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+  .photo {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 256px;
+    text-align: center;
+    border: 1px solid black;
+  }
+}
+
+  

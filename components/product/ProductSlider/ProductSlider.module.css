@@ -1,0 +1,92 @@
+.root {
+  @apply relative w-full h-full;
+  overflow-y: hidden;
+}
+
+.leftControl,
+.rightControl {
+  @apply absolute top-1/2 -translate-x-1/2 z-20 w-16 h-16 flex items-center justify-center bg-hover-1 rounded-full;
+}
+
+.leftControl:hover,
+.rightControl:hover {
+  @apply bg-hover-2;
+}
+
+.leftControl:hover,
+.rightControl:hover {
+  @apply outline-none shadow-outline-normal;
+}
+
+.leftControl {
+  @apply bg-cover left-1;
+  background-image: url('public/cursor-left.png');
+
+  @screen md {
+    @apply left-1;
+  }
+}
+
+.rightControl {
+  @apply bg-cover right-1;
+  background-image: url('public/cursor-right.png');
+
+  @screen md {
+    @apply right-1;
+  }
+}
+
+.control {
+  @apply opacity-0 transition duration-150;
+  width: 10%;
+  height: 10%;
+}
+
+.root:hover .control {
+  @apply opacity-100;
+}
+
+.positionIndicatorsContainer {
+  @apply hidden;
+  width: 80%;
+
+  @screen sm {
+    @apply absolute bottom-1 left-1/2;
+    transform: translateX(-50%);
+  }
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.positionIndicator {
+  @apply rounded-full p-2;
+}
+
+.dot {
+  @apply transition w-3 h-3 rounded-full;
+  background-color: #000;
+  border: 1px solid #eee;
+}
+
+.positionIndicator:hover .dot {
+  background-color: #FFFFFF;
+}
+
+.positionIndicator:focus {
+  @apply outline-none;
+}
+
+.positionIndicator:focus .dot {
+  @apply shadow-outline-normal;
+}
+
+.positionIndicatorActive .dot {
+  @apply bg-white;
+}
+
+.positionIndicatorActive:hover .dot {
+  @apply bg-white;
+}

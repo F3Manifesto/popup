@@ -1,0 +1,40 @@
+@keyframes scrolling {
+  0% {
+    transform: translateX(-1229px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.wrapper {
+  position: relative;
+  border: 1px solid white;
+  border-left: 0;
+  border-right: 0;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+
+  .animationForm {
+    display: flex;
+    animation: scrolling 12s linear infinite;
+
+    .node {
+      display: flex;
+      align-items: center;
+
+      .item {
+        background: transparent;
+        color: white;
+        padding: 1rem 3rem;
+        background: transparent;
+        font-family: 'Inter';
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+    }
+  }
+}

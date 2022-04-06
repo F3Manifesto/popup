@@ -1,0 +1,124 @@
+.wrapper {
+  width: 100%;
+  margin: auto;
+
+  @media (max-width: 576px) {
+    width: 100%;
+
+    .bodyWrapper {
+      height: 90vw;
+    }
+  }
+
+  @media (min-width: 576px) {
+    width: 400px;
+
+    .bodyWrapper {
+      height: 400px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    width: 500px;
+
+    .bodyWrapper {
+      height: 500px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    width: 350px;
+
+    .bodyWrapper {
+      height: 350px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    width: 400px;
+
+    .bodyWrapper {
+      height: 400px;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    width: 500px;
+
+    .bodyWrapper {
+      height: 500px;
+    }
+  }
+
+  .designerWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    .photo {
+      width: 50px;
+      margin-right: 1rem;
+    }
+
+    .name {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 27px;
+      /* identical to box height */
+
+      color: #ffffff;
+    }
+  }
+
+  // .name {
+  //   position: relative;
+  //   color: white;
+  //   font-family: Gilroy;
+  //   font-style: normal;
+  //   font-weight: 800;
+  //   font-size: 36px;
+  //   line-height: 44px;
+  //   margin-bottom: 1rem;
+  //   margin-left: 2rem;
+  //   width: calc(100% - 4rem);
+  // }
+
+  .bodyWrapper {
+    position: relative;
+    padding: 2rem;
+    border: 2px solid #ffffff;
+    box-shadow: inset 0px 0px 30px 20px rgba(255, 255, 255, 0.6),
+      0px 0px 30px 20px rgba(255, 255, 255, 0.6);
+
+    .libon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30%;
+      transform: translate(44%, -46%);
+    }
+
+    .video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .image {
+      width: 100%;
+    }
+
+    .buyNow {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+  }
+}

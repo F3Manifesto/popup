@@ -1,0 +1,43 @@
+.wrapper {
+  margin: auto;
+  .label {
+    
+  }
+
+  .walletAddress {
+    text-transform: uppercase;
+    font-family: 'LEMON MILK';
+    font-weight: normal;
+    color: var(--yellow);
+
+    @media (max-width: 600px) {
+      font-size: 11px;
+    }
+  }
+
+  .button {
+    width: 200px !important;
+    margin: auto;
+    margin-top: 20px !important;
+    font-family: 'LEMON MILK';
+    font-weight: 700;
+    color: var(--blue);
+  }
+
+  label {
+    margin-top: 10px !important;
+  }
+
+  input {
+    border-radius: 20px;
+    color: black;
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+}

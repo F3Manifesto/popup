@@ -1,0 +1,16 @@
+@import '../../../assets/grid.scss';
+
+.wrapper {
+
+  .homePageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+
+    @include lg-width {
+      margin-bottom: 0px;
+      padding: 1.5rem 5rem 1.5rem 5rem;
+    }
+  }
+}

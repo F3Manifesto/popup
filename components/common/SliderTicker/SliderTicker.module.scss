@@ -1,0 +1,42 @@
+.container{
+    border-top: solid 3px black;
+    border-bottom: solid 3px black;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.textLiner{
+    display: flex;
+}
+
+
+.text{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    text-align: center;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    color: #000000;
+    padding-left: 50px;
+    padding-right: 50px;
+    white-space: nowrap;
+
+}
+
+@media (max-width: 540px) {
+    .container{
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .text{
+        font-size: 14px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}

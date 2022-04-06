@@ -1,0 +1,36 @@
+.root{
+    width: 100%;
+}
+
+.tabTitle{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
+
+    text-align: center;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #898682;
+    height: 50px;
+    min-width: 255px;
+    width: 100%;
+    border: 1px solid #E6E6E6;
+
+    @media (max-width: 540px) {
+        min-width: 150px;
+    }
+}
+
+.tabTitle:focus{
+    outline: none;
+}
+
+
+.activeTab{
+    background: #F7F7F7;
+    border: none;
+    border-top: solid 2px #111;
+}

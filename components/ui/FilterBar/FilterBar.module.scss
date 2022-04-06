@@ -1,0 +1,26 @@
+@import '../../../assets/grid.scss';
+
+.filterBarWrapper {
+  color: #FFFFFF;
+
+  .getDressed {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+
+    span {
+      font-weight: 800;
+
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+

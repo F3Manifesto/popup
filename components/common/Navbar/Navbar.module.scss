@@ -1,0 +1,54 @@
+.root {
+  @apply sticky top-0 z-40 transition-all duration-150;
+  @apply bg-blue;
+  z-index: 101;
+}
+
+.link {
+  @apply inline-flex items-center text-white leading-6 font-medium transition ease-in-out duration-75 cursor-pointer text-white;
+
+  @media (max-width: 984px) {
+      font-size: 12px;
+      line-height: 13px;
+      text-align: center;
+  }
+}
+
+.link:hover {
+  @apply text-yellow;
+}
+
+.link:focus {
+  @apply outline-none text-yellow;
+}
+
+.logo {
+  @apply cursor-pointer transform duration-100 ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.navLeft{
+  width: 90%;
+}
+
+.navItems{
+  display: flex;
+  width: 90%;
+  margin-right: 20px;
+  justify-content: flex-end;
+
+  @media (max-width: 780px) {
+    display: none;
+  }
+}
+
+.branding {
+  display: flex;
+  flex-direction: row;
+  height: 45px;
+  justify-content: space-between;
+  align-items: center;
+}
