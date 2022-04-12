@@ -36,7 +36,7 @@ const Collection: FC<Props> = ({
                   <Image
                     alt={collection.name || 'Collection Image'}
                     className={s.collectionImage}
-                    src={collection.image.url || placeholderImg}
+                    src={(collection.image && collection.image.url) || placeholderImg}
                     height={540}
                     width={540}
                     quality="85"
