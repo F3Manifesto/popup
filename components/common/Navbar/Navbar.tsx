@@ -1,9 +1,9 @@
-import { FC } from 'react'
-import Link from 'next/link'
-import { Logo, Container } from '@components/ui'
-import { Searchbar, UserNav } from '@components/common'
-import NavbarRoot from './NavbarRoot'
-import s from './Navbar.module.scss'
+import { FC } from "react";
+import Link from "next/link";
+import { Logo, Container } from "@components/ui";
+import { Searchbar, UserNav } from "@components/common";
+import NavbarRoot from "./NavbarRoot";
+import s from "./Navbar.module.scss";
 
 const Navbar: FC = () => (
   <NavbarRoot>
@@ -18,19 +18,29 @@ const Navbar: FC = () => (
             </Link>
           </div>
           <nav className={`${s.navItems} hidden ml-6 space-x-6 lg:block`}>
-            <Link href="/">
-              <a className={s.link}>
-                WEB3 FASHION MANIFESTO
+            <Link href="https://docs.f3manifesto.xyz/">
+              <a className={s.link} target="_blank">
+                DOCUMENTATION
               </a>
             </Link>
-            <Link href="https://fashion.digitalax.xyz/">
+            <Link href="https://web3fashionmanifesto.f3manifesto.xyz/manifesto/1/">
               <a className={s.link} target="_blank">
-                MARKET
+                Web3 Fashion manifesto
               </a>
             </Link>
-            <Link href="https://staking.digitalax.xyz/">
+            <Link href="https://mirror.xyz/f3manifesto.eth">
               <a className={s.link} target="_blank">
-                SECONDARY MARKETPLACE
+                Sub-thread weekly
+              </a>
+            </Link>
+            <Link href="https://themanifest.f3manifesto.xyz/">
+              <a className={s.link} target="_blank">
+                The Manifest Gallery
+              </a>
+            </Link>
+            <Link href="https://web3cc0openlibrary.f3manifesto.xyz/">
+              <a className={s.link} target="_blank">
+                Web3 CC0 Open Library
               </a>
             </Link>
           </nav>
@@ -42,6 +52,6 @@ const Navbar: FC = () => (
       </div>
     </Container>
   </NavbarRoot>
-)
+);
 
-export default Navbar
+export default Navbar;

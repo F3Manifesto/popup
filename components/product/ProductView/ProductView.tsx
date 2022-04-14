@@ -1,89 +1,89 @@
-import { FC, useEffect, useState } from 'react'
-import cn from 'classnames'
-import Image from 'next/image'
-import { NextSeo } from 'next-seo'
-import { useRouter } from 'next/router'
+import { FC, useEffect, useState } from "react";
+import cn from "classnames";
+import Image from "next/image";
+import { NextSeo } from "next-seo";
+import { useRouter } from "next/router";
 
-import s from './ProductView.module.scss'
+import s from "./ProductView.module.scss";
 
-import { Swatch, ProductSlider } from '@components/product'
-import { Button, Container, useUI } from '@components/ui'
-import BannerBar from '@components/product/ProductView/BannerBar'
-import InfoCard from '@components/ui/InfoCard'
-import ImageCard from './ImageCard'
-import PriceTag from '../PriceTag'
+import { Swatch, ProductSlider } from "@components/product";
+import { Button, Container, useUI } from "@components/ui";
+import BannerBar from "@components/product/ProductView/BannerBar";
+import InfoCard from "@components/ui/InfoCard";
+import ImageCard from "./ImageCard";
+import PriceTag from "../PriceTag";
 
-import type { Product } from '@commerce/types'
-import usePrice from '@framework/product/use-price'
-import { useAddItem } from '@framework/cart'
+import type { Product } from "@commerce/types";
+import usePrice from "@framework/product/use-price";
+import { useAddItem } from "@framework/cart";
 
-import { getVariant, SelectedOptions } from '../helpers'
+import { getVariant, SelectedOptions } from "../helpers";
 
-import { getDripMarketplaceOfferById } from 'services/api.service'
-import digitalaxApi from 'services/digitalaxApi.service'
-import { useMain } from 'context'
+import { getDripMarketplaceOfferById } from "services/api.service";
+import digitalaxApi from "services/digitalaxApi.service";
+import { useMain } from "context";
 
 const fetchTokenUri = async (tokenUri: string) => {
   return fetch(tokenUri)
     .then((res) => res.json())
     .then((res) => {
-      return res
-    })
-}
+      return res;
+    });
+};
 
 const reviseUrl = (url: string) => {
-  if (url?.includes('gateway.pinata')) {
-    return url.replace('gateway.pinata', 'digitalax.mypinata')
+  if (url?.includes("gateway.pinata")) {
+    return url.replace("gateway.pinata", "digitalax.mypinata");
   }
-  return url
-}
+  return url;
+};
 
 interface Props {
-  className?: string
-  children?: any
-  product: Product
+  className?: string;
+  children?: any;
+  product: Product;
 }
 
 interface Designer {
-  id: number
-  image: string
-  description: string
-  name: string
-  instagram?: string
-  twitter?: string
+  id: number;
+  image: string;
+  description: string;
+  name: string;
+  instagram?: string;
+  twitter?: string;
 }
 
 const ProductView: FC<Props> = ({ product }) => {
-  const addItem = useAddItem()
+  const addItem = useAddItem();
   const { price } = usePrice({
     amount: product.price.value,
     baseAmount: product.price.retailPrice,
     currencyCode: product.price.currencyCode!,
-  })
-  const { openSidebar, openModal, setModalView } = useUI()
-  const [loading, setLoading] = useState(false)
+  });
+  const { openSidebar, openModal, setModalView } = useUI();
+  const [loading, setLoading] = useState(false);
   const [choices, setChoices] = useState<SelectedOptions>({
     color: null,
     size: null,
-  })
+  });
 
-  const { user, account, monaPrice, designers } = useMain()
+  const { user, account, monaPrice, designers } = useMain();
   // const [loveCount, setLoveCount] = useState(0)
   // const [viewCount, setViewCount] = useState(0)
-  const [totalAmount, setTotalAmount] = useState(0)
-  const [soldAmount, setSoldAmount] = useState(0)
-  const [rarity, setRarity] = useState('')
-  const [garmentChildren, setGarmentChildren] = useState([])
+  const [totalAmount, setTotalAmount] = useState(0);
+  const [soldAmount, setSoldAmount] = useState(0);
+  const [rarity, setRarity] = useState("");
+  const [garmentChildren, setGarmentChildren] = useState([]);
   // const [isFetchedViewCount, setIsFetchedViewCount] = useState(false)
 
-  const [curImgIndex, setCurImgIndex] = useState(0)
-  const { asPath } = useRouter()
+  const [curImgIndex, setCurImgIndex] = useState(0);
+  const { asPath } = useRouter();
 
-  const productId = asPath.split('/')[2]
-  const collectionId = productId.split('-')[1]
+  const productId = asPath.split("/")[2];
+  const collectionId = productId.split("-")[1];
 
   // Select the correct variant based on choices
-  const variant = getVariant(product, choices)
+  const variant = getVariant(product, choices);
 
   const currentDesigners =
     product.designers?.map((designerId: string) => {
@@ -91,44 +91,44 @@ const ProductView: FC<Props> = ({ product }) => {
         return (
           item.designerId?.toLowerCase() === designerId.toLowerCase() ||
           item.newDesignerID?.toLowerCase() === designerId.toLowerCase()
-        )
-      })
-    }) || []
+        );
+      });
+    }) || [];
 
   const handleOnclick = (i: number) => {
-    setCurImgIndex(i)
-  }
+    setCurImgIndex(i);
+  };
 
   useEffect(() => {
     const fetchDripInfo = async () => {
       const { dripMarketplaceOffer } = await getDripMarketplaceOfferById(
         collectionId
-      )
-      console.log('Product: ', product)
+      );
+      console.log("Product: ", product);
 
-      setTotalAmount(dripMarketplaceOffer.garmentCollection?.garments?.length)
-      setSoldAmount(dripMarketplaceOffer.amountSold)
-      setRarity(dripMarketplaceOffer.garmentCollection?.rarity)
-      const children: any = []
+      setTotalAmount(dripMarketplaceOffer.garmentCollection?.garments?.length);
+      setSoldAmount(dripMarketplaceOffer.amountSold);
+      setRarity(dripMarketplaceOffer.garmentCollection?.rarity);
+      const children: any = [];
 
       if (dripMarketplaceOffer.garmentCollection?.garments[0].children.length) {
         dripMarketplaceOffer.garmentCollection?.garments[0].children.forEach(
           async (child: any) => {
-            const info = await fetchTokenUri(child.tokenUri)
+            const info = await fetchTokenUri(child.tokenUri);
             children.push({
               ...info,
-              id: child.id.split('-')[1],
-            })
+              id: child.id.split("-")[1],
+            });
           }
-        )
+        );
       }
 
-      setGarmentChildren(children)
-      console.log('garmentChildren: ', children.length)
+      setGarmentChildren(children);
+      console.log("garmentChildren: ", children.length);
       // setDesigner(dripMarketplaceOffer.designer)
-    }
+    };
 
-    fetchDripInfo()
+    fetchDripInfo();
 
     // const fetchViews = async () => {
     //   const viewData = await digitalaxApi.getViews('product', productId)
@@ -154,22 +154,23 @@ const ProductView: FC<Props> = ({ product }) => {
 
     // fetchViews()
     // addViewCount()
-  }, [])
+  }, []);
 
   const addToCart = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
       await addItem({
         productId: String(product.id),
         variantId: String(variant ? variant.id : product.variants[0].id),
-      })
+      });
 
-      openSidebar()
-      setLoading(false)
+      openSidebar();
+      setLoading(false);
     } catch (err) {
-      setLoading(false)
+      console.log({ err });
+      setLoading(false);
     }
-  }
+  };
 
   // const addLove = async () => {
   //   const data = await digitalaxApi.addLove(
@@ -188,16 +189,16 @@ const ProductView: FC<Props> = ({ product }) => {
   // }
 
   const onReadBtn = () => {
-    setModalView('BESPOKE_VIEW')
-    openModal()
-  }
+    setModalView("BESPOKE_VIEW");
+    openModal();
+  };
 
-  useEffect(() => {}, [])
+  useEffect(() => {}, []);
 
   const monaAmount =
     !price || price === undefined
-      ? '0.00'
-      : `${(monaPrice * Number(price?.replace(/\$/g, '') || '0')).toFixed(2)}`
+      ? "0.00"
+      : `${(monaPrice * Number(price?.replace(/\$/g, "") || "0")).toFixed(2)}`;
 
   return (
     <>
@@ -206,7 +207,7 @@ const ProductView: FC<Props> = ({ product }) => {
           title={product.name}
           description={product.description}
           openGraph={{
-            type: 'website',
+            type: "website",
             title: product.name,
             description: product.description,
             images: [
@@ -220,11 +221,11 @@ const ProductView: FC<Props> = ({ product }) => {
           }}
         />
 
-        <div className={cn(s.root, 'fit')}>
+        <div className={cn(s.root, "fit")}>
           <div className={s.productName}>{product.name}</div>
           <div className={s.mainBody}>
             <div className={s.leftSide}>
-              <div className={cn(s.productDisplay, 'fit')}>
+              <div className={cn(s.productDisplay, "fit")}>
                 <div className={s.sliderContainer}>
                   <div className={s.bodyWrapper}>
                     <ProductSlider
@@ -237,7 +238,7 @@ const ProductView: FC<Props> = ({ product }) => {
                           <Image
                             className={s.img}
                             src={image.url!}
-                            alt={image.alt || 'Product Image'}
+                            alt={image.alt || "Product Image"}
                             width={780}
                             height={1000}
                             priority={i === 0}
@@ -251,48 +252,48 @@ const ProductView: FC<Props> = ({ product }) => {
               </div>
 
               <div className={s.productAttrs}>
-                  {product.options
-                    ?.sort((a, b) => {
-                      const nameA = a.displayName
-                      const nameB = b.displayName
-                      if (nameA < nameB) {
-                        return -1
-                      }
-                      if (nameA > nameB) {
-                        return 1
-                      }
-                      return 0
-                    })
-                    .map((opt) => (
-                      <div className="pb-4 pr-6" key={opt.displayName}>
-                        <div className="flex flex-row py-4">
-                          {opt.values.map((v, i: number) => {
-                            const active = (choices as any)[
-                              opt.displayName.toLowerCase()
-                            ]
+                {product.options
+                  ?.sort((a, b) => {
+                    const nameA = a.displayName;
+                    const nameB = b.displayName;
+                    if (nameA < nameB) {
+                      return -1;
+                    }
+                    if (nameA > nameB) {
+                      return 1;
+                    }
+                    return 0;
+                  })
+                  .map((opt) => (
+                    <div className="pb-4 pr-6" key={opt.displayName}>
+                      <div className="flex flex-row py-4">
+                        {opt.values.map((v, i: number) => {
+                          const active = (choices as any)[
+                            opt.displayName.toLowerCase()
+                          ];
 
-                            return (
-                              <Swatch
-                                key={`${opt.id}-${i}`}
-                                active={v.label.toLowerCase() === active}
-                                variant={opt.displayName}
-                                color={v.hexColors ? v.hexColors[0] : ''}
-                                label={v.label}
-                                onClick={() => {
-                                  setChoices((choices) => {
-                                    return {
-                                      ...choices,
-                                      [opt.displayName.toLowerCase()]: v.label.toLowerCase(),
-                                    }
-                                  })
-                                }}
-                              />
-                            )
-                          })}
-                        </div>
+                          return (
+                            <Swatch
+                              key={`${opt.id}-${i}`}
+                              active={v.label.toLowerCase() === active}
+                              variant={opt.displayName}
+                              color={v.hexColors ? v.hexColors[0] : ""}
+                              label={v.label}
+                              onClick={() => {
+                                setChoices((choices) => {
+                                  return {
+                                    ...choices,
+                                    [opt.displayName.toLowerCase()]: v.label.toLowerCase(),
+                                  };
+                                });
+                              }}
+                            />
+                          );
+                        })}
                       </div>
-                    ))}
-                </div>
+                    </div>
+                  ))}
+              </div>
 
               <div className={s.openCollectionButtonWrapper}>
                 <Button
@@ -314,13 +315,13 @@ const ProductView: FC<Props> = ({ product }) => {
                     key={image.url}
                     className={[
                       s.previewImg,
-                      i == curImgIndex ? s.selected : '',
-                    ].join(' ')}
+                      i == curImgIndex ? s.selected : "",
+                    ].join(" ")}
                   >
                     <Image
                       className={s.img}
                       src={image.url!}
-                      alt={image.alt || 'Product Image'}
+                      alt={image.alt || "Product Image"}
                       width={88}
                       height={119}
                       priority={i === 0}
@@ -345,7 +346,7 @@ const ProductView: FC<Props> = ({ product }) => {
                 <div className={s.amount}>
                   {product.limited
                     ? `${soldAmount} of ${totalAmount}`
-                    : 'Open Edition'}
+                    : "Open Edition"}
                   <div className={s.helper}>
                     <span className={s.questionMark}>?</span>
                     <span className={s.description}>
@@ -376,10 +377,7 @@ const ProductView: FC<Props> = ({ product }) => {
                 <div>
                   {/* <p className={s.openCollection}>Open Collection</p>
                    */}
-                  <InfoCard
-                    mainColor="transparent"
-                    bodyClass={s.productDesc}
-                  >
+                  <InfoCard mainColor="transparent" bodyClass={s.productDesc}>
                     <div className={s.infoCard}>
                       <div className={s.skinName}>
                         <div className={s.text}> {rarity} </div>
@@ -391,11 +389,7 @@ const ProductView: FC<Props> = ({ product }) => {
                   </InfoCard>
                 </div>
 
-                <button
-                  type="button"
-                  className={s.readBtn}
-                  onClick={onReadBtn}
-                >
+                <button type="button" className={s.readBtn} onClick={onReadBtn}>
                   read manifesto chapter
                 </button>
 
@@ -407,7 +401,7 @@ const ProductView: FC<Props> = ({ product }) => {
                         href="https://designers.digitalax.xyz/fractional/"
                         target="_blank"
                       > */}
-                        Fractional Garment Ownership
+                      Fractional Garment Ownership
                       {/* </a> */}
                     </div>
                     <div className={s.childrenWrapper}>
@@ -426,7 +420,7 @@ const ProductView: FC<Props> = ({ product }) => {
                               </video>
                             ) : null}
                           </a>
-                        )
+                        );
                       })}
                     </div>
                   </div>
@@ -438,12 +432,12 @@ const ProductView: FC<Props> = ({ product }) => {
       </Container>
       <BannerBar className={s.homeHeroBar} />
       {currentDesigners.map((designerItem: any, index: number) => {
-        if (!designerItem || designerItem == undefined) return null
+        if (!designerItem || designerItem == undefined) return null;
         return (
           <>
             <section
-              className={[s.designerSection, index > 0 ? s.margin50 : ''].join(
-                ' '
+              className={[s.designerSection, index > 0 ? s.margin50 : ""].join(
+                " "
               )}
             >
               <Container>
@@ -472,16 +466,14 @@ const ProductView: FC<Props> = ({ product }) => {
                         ) : (
                           <></>
                         )} */}
-                      <InfoCard
-                        mainColor="var(--blue)"
-                      >
+                      <InfoCard mainColor="var(--blue)">
                         <a
                           href={`https://designers.digitalax.xyz/designers/${designerItem.designerId}`}
                           target="_blank"
                         >
                           <div className={s.name}>
-                            {' '}
-                            {designerItem.designerId}{' '}
+                            {" "}
+                            {designerItem.designerId}{" "}
                           </div>
                         </a>
                         <div className={s.description}>
@@ -502,10 +494,10 @@ const ProductView: FC<Props> = ({ product }) => {
               </Container>
             </section>
           </>
-        )
+        );
       })}
     </>
-  )
-}
+  );
+};
 
-export default ProductView
+export default ProductView;

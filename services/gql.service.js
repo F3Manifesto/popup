@@ -1,4 +1,4 @@
-import { gql } from 'graphql-request'
+import { gql } from "graphql-request";
 
 export const PAYABLE_TOKEN_REQUEST = gql`
   query payableTokenReport($id: ID) {
@@ -8,21 +8,23 @@ export const PAYABLE_TOKEN_REQUEST = gql`
       timestamp
     }
   }
-`
+`;
 
 export const DRIP_MARKETPLACE_PURCHASE_HISTORES = gql`
-  query dripMarketplacePurchaseHistories($orderId: Int) {
-    dripMarketplacePurchaseHistories(where: { orderId: $orderId }) {
+  query dripF3MMarketplacePurchaseHistories($orderId: Int) {
+    dripMarketplacePurchaseHistories: dripF3MMarketplacePurchaseHistories(
+      where: { orderId: $orderId }
+    ) {
       id
       orderId
       buyer
     }
   }
-`
+`;
 
 export const DIGITALAX_GARMENT_V2_COLLECTION_BY_ID = gql`
   query digitalaxGarmentV2Collection($id: ID!) {
-    digitalaxGarmentV2Collection(id: $id) {
+    digitalaxGarmentV2Collection: digitalaxF3MNFTCollection(id: $id) {
       id
       garments(first: 1000) {
         id
@@ -45,19 +47,13 @@ export const DIGITALAX_GARMENT_V2_COLLECTION_BY_ID = gql`
         twitter
         image
       }
-      developer {
-        id
-        name
-        description
-        image
-      }
     }
   }
-`
+`;
 
 export const DRIP_MARKETPLACE_OFFER_BY_ID = gql`
-  query dripMarketplaceOffer($id: ID!) {
-    dripMarketplaceOffer(id: $id) {
+  query dripF3MMarketplaceOffer($id: ID!) {
+    dripMarketplaceOffer: dripF3MMarketplaceOffer(id: $id) {
       id
       startTime
       endTime
@@ -86,27 +82,20 @@ export const DRIP_MARKETPLACE_OFFER_BY_ID = gql`
           twitter
           image
         }
-        developer {
-          id
-          name
-          description
-          image
-        }
       }
     }
   }
-`
+`;
 
 export const DRIP_MARKETPLACE_OFFERS = gql`
-  query dripMarketplaceOffers {
-    dripMarketplaceOffers (first: 1000) {
+  query dripF3MMarketplaceOffers {
+    dripMarketplaceOffers: dripF3MMarketplaceOffers(first: 1000) {
       id
       startTime
       endTime
       amountSold
       garmentCollection {
         id
-        garmentAuctionID
         rarity
         garments {
           id
@@ -122,12 +111,14 @@ export const DRIP_MARKETPLACE_OFFERS = gql`
       }
     }
   }
-`
+`;
 
 // For Profile Page
 export const DIGITALAX_MARKETPLACE_V2_OFFER = gql`
   query digitalaxMarketplaceV2Offers($garmentCollection: String!) {
-    digitalaxMarketplaceV2Offers(where: { garmentCollection: $garmentCollection }) {
+    digitalaxMarketplaceV2Offers(
+      where: { garmentCollection: $garmentCollection }
+    ) {
       id
       primarySalePrice
       startTime
@@ -141,7 +132,7 @@ export const DIGITALAX_MARKETPLACE_V2_OFFER = gql`
       }
     }
   }
-`
+`;
 
 // DIGITALAX GARMENTS (eth, polygon)
 export const DIGITALAX_GARMENTS_BY_OWNER = gql`
@@ -177,7 +168,10 @@ export const DIGITALAX_GARMENTS = gql`
 // (polygon only)
 export const DIGITALAX_GARMENT_V2S_BY_OWNER = gql`
   query digitalaxGarmentV2S($owner: ID!, $first: Int!, $lastID: ID!) {
-    digitalaxGarmentV2S(first: $first, where: { owner: $owner, id_gt: $lastID }) {
+    digitalaxGarmentV2S(
+      first: $first
+      where: { owner: $owner, id_gt: $lastID }
+    ) {
       id
       owner
       designer
@@ -193,7 +187,10 @@ export const DIGITALAX_GARMENT_V2S_BY_OWNER = gql`
 // (polygon digi bundle)
 export const DIGITALAX_SUBSCRIPTIONS_BY_OWNER = gql`
   query digitalaxSubscriptions($owner: ID!, $first: Int!, $lastID: ID!) {
-    digitalaxSubscriptions(first: $first, where: { owner: $owner, id_gt: $lastID }) {
+    digitalaxSubscriptions(
+      first: $first
+      where: { owner: $owner, id_gt: $lastID }
+    ) {
       id
       name
       owner
@@ -207,8 +204,15 @@ export const DIGITALAX_SUBSCRIPTIONS_BY_OWNER = gql`
 
 // polygon digifizzy 1155
 export const DIGITALAX_SUBSCRIPTION_COLLECTORS_BY_OWNER = gql`
-  query digitalaxSubscriptionCollectors($owner: ID!, $first: Int!, $lastID: ID!) {
-    digitalaxSubscriptionCollectors(first: $first, where: { id: $owner, id_gt: $lastID }) {
+  query digitalaxSubscriptionCollectors(
+    $owner: ID!
+    $first: Int!
+    $lastID: ID!
+  ) {
+    digitalaxSubscriptionCollectors(
+      first: $first
+      where: { id: $owner, id_gt: $lastID }
+    ) {
       id
       childrenOwned {
         id
@@ -251,7 +255,10 @@ export const DIGITALAX_NFT_STAKERS_BY_ADDRESS = gql`
 // staked fashion NFTs ethereum
 export const DIGITALAX_GARMENT_STAKED_TOKENS_BY_ADDRESS = gql`
   query digitalaxGarmentStakedTokens($staker: ID!, $first: Int!, $lastID: ID!) {
-    digitalaxGarmentStakedTokens(first: $first, where: { staker: $staker, id_gt: $lastID }) {
+    digitalaxGarmentStakedTokens(
+      first: $first
+      where: { staker: $staker, id_gt: $lastID }
+    ) {
       id
       staker
     }
@@ -261,7 +268,10 @@ export const DIGITALAX_GARMENT_STAKED_TOKENS_BY_ADDRESS = gql`
 // genesis NFTs ethereum
 export const DIGITALAX_GENESIS_NFTS_BY_ADDRESS = gql`
   query digitalaxGenesisNFTs($owner: ID!, $first: Int!, $lastID: ID!) {
-    digitalaxGenesisNFTs(first: $first, where: { owner: $owner, id_gt: $lastID }) {
+    digitalaxGenesisNFTs(
+      first: $first
+      where: { owner: $owner, id_gt: $lastID }
+    ) {
       id
       owner
       name
@@ -276,7 +286,10 @@ export const DIGITALAX_GENESIS_NFTS_BY_ADDRESS = gql`
 // genesis NFTs by ids ethereum
 export const DIGITALAX_GENESIS_NFTS = gql`
   query digitalaxGenesisNFTs($ids: [ID!], $first: Int!, $lastID: ID!) {
-    digitalaxGenesisNFTs(first: $first, where: { id_in: $ids, id_gt: $lastID }) {
+    digitalaxGenesisNFTs(
+      first: $first
+      where: { id_in: $ids, id_gt: $lastID }
+    ) {
       id
       owner
       name
@@ -291,7 +304,10 @@ export const DIGITALAX_GENESIS_NFTS = gql`
 // staked genesis NFTs ethereum
 export const DIGITALAX_GENESIS_STAKED_TOKENS_BY_ADDRESS = gql`
   query digitalaxGenesisStakedTokens($staker: ID!, $first: Int!, $lastID: ID!) {
-    digitalaxGenesisStakedTokens(first: $first, where: { staker: $staker, id_gt: $lastID }) {
+    digitalaxGenesisStakedTokens(
+      first: $first
+      where: { staker: $staker, id_gt: $lastID }
+    ) {
       id
       staker
     }
@@ -396,7 +412,10 @@ export const DIGITALAX_LOOK_NFTS_BY_OWNER = gql`
 
 export const DIGITALAX_GARMENT_V2_COLLECTIONS = gql`
   query digitalaxGarmentV2Collections($ids: [ID!], $first: Int!, $lastID: ID!) {
-    digitalaxGarmentV2Collections(first: $first, where: { id_in: $ids, id_gt: $lastID }) {
+    digitalaxGarmentV2Collections(
+      first: $first
+      where: { id_in: $ids, id_gt: $lastID }
+    ) {
       id
       garments(first: 1000) {
         id
@@ -406,7 +425,11 @@ export const DIGITALAX_GARMENT_V2_COLLECTIONS = gql`
 `;
 
 export const DIGITALAX_GARMENT_V2_COLLECTIONS_BY_GARMENT_IDS = gql`
-  query digitalaxGarmentV2Collections($garmentIDs: [ID!], $first: Int!, $lastID: ID!) {
+  query digitalaxGarmentV2Collections(
+    $garmentIDs: [ID!]
+    $first: Int!
+    $lastID: ID!
+  ) {
     digitalaxGarmentV2Collections(first: $first, where: { id_gt: $lastID }) {
       id
       garments(first: 1000, where: { id_in: $garmentIDs }) {
@@ -425,7 +448,10 @@ export const DIGITALAX_GARMENT_V2_COLLECTIONS_BY_GARMENT_IDS = gql`
 
 export const DIGITALAX_LOOK_GOLDEN_TICKETS_BY_OWNER = gql`
   query digitalaxLookGoldenTickets($owner: ID!, $first: Int!, $lastID: ID!) {
-    digitalaxLookGoldenTickets(first: $first, where: { owner: $owner, id_gt: $lastID }) {
+    digitalaxLookGoldenTickets(
+      first: $first
+      where: { owner: $owner, id_gt: $lastID }
+    ) {
       id
       name
       description
@@ -458,7 +484,11 @@ export const DIGITALAX_NFT_STAKERS_BY_GARMENTS = gql`
 
 // whitelisted staked nfts on dlta by id list on polygon
 export const GUILD_WHITELISTED_NFT_STAKERS_BY_GARMENTS = gql`
-  query guildWhitelistedNFTStakers($garmentIDs: [ID!], $first: Int!, $lastID: ID!) {
+  query guildWhitelistedNFTStakers(
+    $garmentIDs: [ID!]
+    $first: Int!
+    $lastID: ID!
+  ) {
     guildWhitelistedNFTStakers(first: $first, where: { id_gt: $lastID }) {
       id
       garments(first: 1000, where: { id_in: $garmentIDs }) {
@@ -477,7 +507,10 @@ export const GUILD_WHITELISTED_NFT_STAKERS_BY_GARMENTS = gql`
 // get staked pode tokens by staker
 export const GUILD_WHITELISTED_NFT_STAKERS_BY_STAKER = gql`
   query guildWhitelistedNFTStakers($staker: ID!, $first: Int!, $lastID: ID!) {
-    guildWhitelistedNFTStakers(first: $first, where: { id: $staker, id_gt: $lastID }) {
+    guildWhitelistedNFTStakers(
+      first: $first
+      where: { id: $staker, id_gt: $lastID }
+    ) {
       id
       garments {
         id
@@ -492,4 +525,3 @@ export const GUILD_WHITELISTED_NFT_STAKERS_BY_STAKER = gql`
     }
   }
 `;
-
