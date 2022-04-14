@@ -105,6 +105,8 @@ const ProductView: FC<Props> = ({ product }) => {
         collectionId
       );
       console.log("Product: ", product);
+      console.log("collectionId: ", collectionId);
+      console.log("dripMarketplaceOffer: ", dripMarketplaceOffer);
 
       setTotalAmount(dripMarketplaceOffer.garmentCollection?.garments?.length);
       setSoldAmount(dripMarketplaceOffer.amountSold);
@@ -158,6 +160,10 @@ const ProductView: FC<Props> = ({ product }) => {
 
   const addToCart = async () => {
     setLoading(true);
+    console.log({
+      productId: String(product.id),
+      variantId: String(variant ? variant.id : product.variants[0].id),
+    });
     try {
       await addItem({
         productId: String(product.id),
