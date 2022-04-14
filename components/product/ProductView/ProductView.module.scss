@@ -71,6 +71,49 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      position: relative;
+
+      .previewImages {
+        position: absolute;
+        left: -70px;
+        top: 10px;
+        display: flex;
+        flex-direction: column;
+        z-index: 30;
+        // position: relative;
+        margin-top: 0;
+        max-width: 600px;
+      
+        .previewImg {
+          margin-bottom: 5px;
+          border: 2px solid var(--blue);
+          box-sizing: border-box;
+          border-radius: 9px;
+
+          img {
+            object-fit: cover;
+          }
+      
+          @media (max-width: 540px) {
+            margin-left: 0px;
+            margin-bottom: 5px;
+          }
+      
+          
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+            
+          }
+        }
+      
+        .selected {
+          box-shadow: -1px 0 white, 0 -1px white, -1px -1px white, 1px 0 white, 0 1px white, 1px 1px white;
+          transform: scale(1.1);
+          // transition: 0.3s all;
+        }
+      }
+
     
       @include lg-width {
         margin: auto;
@@ -201,44 +244,6 @@
 
         }
       }
-      
-      .previewImages {
-        display: flex;
-        z-index: 30;
-        position: relative;
-        margin-top: 0;
-        max-width: 600px;
-      
-        .previewImg {
-          margin-left: 12px;
-          border: 2px solid var(--blue);
-          box-sizing: border-box;
-          border-radius: 9px;
-
-          img {
-            object-fit: cover;
-          }
-      
-          @media (max-width: 540px) {
-            margin-left: 0px;
-            margin-right: 12px;
-          }
-      
-          
-          &:hover {
-            cursor: pointer;
-            transform: scale(1.1);
-            
-          }
-        }
-      
-        .selected {
-          box-shadow: -1px 0 white, 0 -1px white, -1px -1px white, 1px 0 white, 0 1px white, 1px 1px white;
-          transform: scale(1.1);
-          // transition: 0.3s all;
-        }
-      }
-
 
       .buttonWrapper {
         display: flex;

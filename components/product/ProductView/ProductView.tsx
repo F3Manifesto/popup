@@ -257,6 +257,29 @@ const ProductView: FC<Props> = ({ product }) => {
                 </div>
               </div>
 
+              <div className={s.previewImages}>
+                {product.images.map((image, i) => (
+                  <div
+                    key={image.url}
+                    className={[
+                      s.previewImg,
+                      i == curImgIndex ? s.selected : "",
+                    ].join(" ")}
+                  >
+                    <Image
+                      className={s.img}
+                      src={image.url!}
+                      alt={image.alt || "Product Image"}
+                      width={44}
+                      height={44}
+                      priority={i === 0}
+                      quality="85"
+                      onClick={() => handleOnclick(i)}
+                    />
+                  </div>
+                ))}
+              </div>
+
               <div className={s.productAttrs}>
                 {product.options
                   ?.sort((a, b) => {
@@ -313,29 +336,6 @@ const ProductView: FC<Props> = ({ product }) => {
                   {/* <img src={`/images/black_update/gray_button2.png`} /> */}
                   <div className={s.title}>ADD TO CART</div>
                 </Button>
-              </div>
-
-              <div className={s.previewImages}>
-                {product.images.map((image, i) => (
-                  <div
-                    key={image.url}
-                    className={[
-                      s.previewImg,
-                      i == curImgIndex ? s.selected : "",
-                    ].join(" ")}
-                  >
-                    <Image
-                      className={s.img}
-                      src={image.url!}
-                      alt={image.alt || "Product Image"}
-                      width={88}
-                      height={119}
-                      priority={i === 0}
-                      quality="85"
-                      onClick={() => handleOnclick(i)}
-                    />
-                  </div>
-                ))}
               </div>
 
               <div className={s.buttonWrapper}>
