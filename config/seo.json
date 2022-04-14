@@ -1,26 +1,26 @@
 {
-  "title": "DIGITALAX | REP YOUR STYLE IRL",
-  "titleTemplate": "%s - The First Hybrid Digital Physical NFT Fashion Line",
-  "description": "The First Hybrid Digital Physical NFT Fashion Line",
+  "title": "F3Manifesto Pop Up",
+  "titleTemplate": "",
+  "description": "",
   "openGraph": {
-    "title": "REP YOUR STYLE IRL",
-    "description": "The First Hybrid Digital Physical NFT Fashion Line",
+    "title": "IRL Web3 Fashion & Collectibles",
+    "description": "Decentralisation is our needle and thread, and for anyone who doesn’t see it or wear it yet or thinks that this revolution isn’t already here — Come and take that needle and thread from us if you so dare.",
     "type": "website",
     "locale": "en_IE",
-    "url": "https://drip.digitalax.xyz",
-    "site_name": "REP YOUR STYLE IRL",
+    "url": "https://popup.f3manifesto.xyz",
+    "site_name": "F₃Manifesto Pop Up",
     "images": [
       {
         "url": "/card.png",
         "width": 800,
         "height": 600,
-        "alt": "DigitalAX"
+        "alt": "F₃Manifesto"
       }
     ]
   },
   "twitter": {
-    "handle": "@digitalax",
-    "site": "@digitalax",
+    "handle": "@f3manifesto",
+    "site": "@f3manifesto",
     "cardType": "summary_large_image"
   }
 }
