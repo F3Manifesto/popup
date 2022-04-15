@@ -6,9 +6,25 @@
 
 .link {
   @apply inline-flex items-center text-white leading-6 font-medium transition ease-in-out duration-75 cursor-pointer text-white;
+  white-space: nowrap;
   text-transform: uppercase;
-  @media (max-width: 984px) {
+
+  @media (max-width: 1400px) {
+    font-size: 13px;
+    line-height: 14px;
+    margin-left: 12px !important;
+    text-align: center;
+  }
+
+  @media (max-width: 1200px) {
     font-size: 12px;
+    line-height: 14px;
+    margin-left: 12px !important;
+    text-align: center;
+  }
+
+  @media (max-width: 1100px) {
+    font-size: 10px;
     line-height: 13px;
     text-align: center;
   }

@@ -1,35 +1,35 @@
-import { Layout } from '@components/common'
-import { GridContainer, Container } from '@components/ui'
-import { ProductItem } from '@components/product'
+import { Layout, ProductTiles } from "@components/common";
+import { GridContainer, Container } from "@components/ui";
+import { ProductItem } from "@components/product";
 
 // import HomeAllProductsGrid from '@components/common/HomeAllProductsGrid'
-import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 
-import { getConfig } from '@framework/api'
-import getAllProducts from '@framework/product/get-all-products'
-import getSiteInfo from '@framework/common/get-site-info'
-import getAllPages from '@framework/common/get-all-pages'
-import getAllCollections from '@framework/product/get-all-collections'
-import ProductTopBanner from '@components/common/ProductTopBanner'
+import { getConfig } from "@framework/api";
+import getAllProducts from "@framework/product/get-all-products";
+import getSiteInfo from "@framework/common/get-site-info";
+import getAllPages from "@framework/common/get-all-pages";
+import getAllCollections from "@framework/product/get-all-collections";
+import ProductTopBanner from "@components/common/ProductTopBanner";
 
 export async function getStaticProps({
   preview,
   locale,
 }: GetStaticPropsContext) {
-  const config = getConfig({ locale })
+  const config = getConfig({ locale });
 
   const { products } = await getAllProducts({
     variables: { first: 12 },
     config,
     preview,
-  })
+  });
 
   const collections = await getAllCollections({
     config,
-  })
+  });
 
-  const { categories, brands } = await getSiteInfo({ config, preview })
-  const { pages } = await getAllPages({ config, preview })
+  const { categories, brands } = await getSiteInfo({ config, preview });
+  const { pages } = await getAllPages({ config, preview });
 
   return {
     props: {
@@ -40,7 +40,7 @@ export async function getStaticProps({
       pages,
     },
     revalidate: 14400,
-  }
+  };
 }
 
 export default function Home({
@@ -50,12 +50,13 @@ export default function Home({
   categories,
   pages,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  console.log(collections)
-  console.log(products)
+  console.log(collections);
+  console.log(products);
   return (
     <>
       <ProductTopBanner showSlider />
       <Container>
+        <ProductTiles products={products} />
         <GridContainer>
           {products.map((product, i) => (
             <ProductItem
@@ -123,7 +124,7 @@ export default function Home({
         brands={brands}
       /> */}
     </>
-  )
+  );
 }
 
-Home.Layout = Layout
+Home.Layout = Layout;

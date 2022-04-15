@@ -1,12 +1,12 @@
 .gridContainer{
-    max-width: 1320px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    /* margin-top: 100px; */
+  max-width: 1320px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 100px;
 
-    @media (max-width: 1300px){
-        justify-content: space-around;
-    }
+  @media (max-width: 1300px){
+      justify-content: space-around;
+  }
 }

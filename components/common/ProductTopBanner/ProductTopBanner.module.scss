@@ -1,16 +1,37 @@
 @import '../../../assets/grid.scss';
 
 .wrapper {
+  position: relative;
 
   .homePageContainer {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    margin-bottom: 20px;
+    padding-bottom: 50px;
 
     @include lg-width {
       margin-bottom: 0px;
-      padding: 1.5rem 5rem 1.5rem 5rem;
+      padding: 1.5rem 5rem 7rem 5rem;
+    }
+
+    .overlay {
+      background: rgba(255, 239, 98, 0.9);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+
+    }
+
+    .headerImage {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }

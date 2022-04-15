@@ -20,11 +20,11 @@
   .productName {
     width: 100%;
     left: 50%;
-    padding: 2rem 0;
+    padding: 2rem 0 0 0;
     text-align: center;
     text-transform: uppercase;
     color: var(--blue);
-    font-size: 30px;
+    font-size: 3.5vw;
     line-height: 125%;
   
     font-family: NewYork;
@@ -32,35 +32,36 @@
     font-weight: 400;
     margin: auto;
   
-    @include sm-width {
-      // width: 470px;
-    }
+    // @include sm-width {
+    //   // width: 470px;
+    // }
   
-    @include md-width {
-      font-size: 30px;
-      // width: 580px;
-    }
+    // @include md-width {
+    //   font-size: 35px;
+    //   // width: 580px;
+    // }
   
-    @include lg-width {
-      font-size: 40px;
-      // width: 350px;
-      margin: 0;
-    }
+    // @include lg-width {
+    //   font-size: 45px;
+    //   // width: 350px;
+    //   margin: 0;
+    // }
   
-    @include xl-width {
-      font-size: 50px;
-      // width: 470px;
-    }
+    // @include xl-width {
+    //   font-size: 55px;
+    //   // width: 470px;
+    // }
   
-    @include xxl-width {
-      font-size: 60px;
-      // width: 580px;
-    }
+    // @include xxl-width {
+    //   font-size: 65px;
+    //   // width: 580px;
+    // }
   }
 
   .mainBody {
     display: flex;
     flex-direction: column;
+    margin-top: -1.5vw;
 
     .leftSide {
       height: 100%;
