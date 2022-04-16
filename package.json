@@ -49,6 +49,7 @@
     "react-lazyload": "^3.2.0",
     "react-merge-refs": "^1.1.0",
     "react-multi-carousel": "^2.6.3",
+    "react-responsive-carousel": "^3.2.23",
     "react-ticker": "^1.2.2",
     "react-toastify": "^7.0.3",
     "react-transition-group": "^4.4.1",

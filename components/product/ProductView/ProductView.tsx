@@ -22,6 +22,7 @@ import { getVariant, SelectedOptions } from "../helpers";
 import { getDripMarketplaceOfferById } from "services/api.service";
 import digitalaxApi from "services/digitalaxApi.service";
 import { useMain } from "context";
+import SlidingPanels from "./SlidingPanels";
 
 const fetchTokenUri = async (tokenUri: string) => {
   return fetch(tokenUri)
@@ -324,6 +325,14 @@ const ProductView: FC<Props> = ({ product }) => {
                   ))}
               </div>
 
+              <div className={s.buttonWrapper}>
+                <PriceTag
+                  withoutDollarSign={true}
+                  monaPrice={monaAmount}
+                  dollarPrice={price}
+                />
+              </div>
+
               <div className={s.openCollectionButtonWrapper}>
                 <Button
                   aria-label="Add to Cart"
@@ -337,19 +346,11 @@ const ProductView: FC<Props> = ({ product }) => {
                   <div className={s.title}>ADD TO CART</div>
                 </Button>
               </div>
-
-              <div className={s.buttonWrapper}>
-                <PriceTag
-                  withoutDollarSign={true}
-                  monaPrice={monaAmount}
-                  dollarPrice={price}
-                />
-              </div>
             </div>
 
             <div className={s.sidebar}>
               <section>
-                <div className={s.amount}>
+                {/* <div className={s.amount}>
                   {product.limited
                     ? `${soldAmount} of ${totalAmount}`
                     : "Open Edition"}
@@ -360,7 +361,7 @@ const ProductView: FC<Props> = ({ product }) => {
                       longer.
                     </span>
                   </div>
-                </div>
+                </div> */}
                 {/* <div className={s.lovesWrapper}>
                   <button
                     type="button"
@@ -385,9 +386,9 @@ const ProductView: FC<Props> = ({ product }) => {
                    */}
                   <InfoCard mainColor="transparent" bodyClass={s.productDesc}>
                     <div className={s.infoCard}>
-                      <div className={s.skinName}>
+                      {/* <div className={s.skinName}>
                         <div className={s.text}> {rarity} </div>
-                      </div>
+                      </div> */}
                       <div className={s.description}>
                         {product?.description}
                       </div>
@@ -395,11 +396,11 @@ const ProductView: FC<Props> = ({ product }) => {
                   </InfoCard>
                 </div>
 
-                <button type="button" className={s.readBtn} onClick={onReadBtn}>
+                {/* <button type="button" className={s.readBtn} onClick={onReadBtn}>
                   read manifesto chapter
-                </button>
+                </button> */}
 
-                {garmentChildren?.length && (
+                {garmentChildren?.length > 0 && (
                   <div className={s.garmentWrapper}>
                     <div className={s.childrenDescription}>
                       {/* Open Source{' '}
@@ -437,71 +438,7 @@ const ProductView: FC<Props> = ({ product }) => {
         </div>
       </Container>
       <BannerBar className={s.homeHeroBar} />
-      {currentDesigners.map((designerItem: any, index: number) => {
-        if (!designerItem || designerItem == undefined) return null;
-        return (
-          <>
-            <section
-              className={[s.designerSection, index > 0 ? s.margin50 : ""].join(
-                " "
-              )}
-            >
-              <Container>
-                <div className={s.designerBody}>
-                  {/* <div className={s.title}> designer </div> */}
-                  <div className={s.data}>
-                    <a
-                      href={`https://designers.digitalax.xyz/designers/${designerItem.designerId}`}
-                      target="_blank"
-                    >
-                      <ImageCard imgUrl={designerItem.image_url} noShadow />
-                    </a>
-                    <div className={s.infoWrapper}>
-                      {/* {owners.length ? (
-                          <div className={s.wearersLabel}>current wearer/S</div>
-                        ) : (
-                          <></>
-                        )}
-                        {owners.length ? (
-                          <UserList
-                            className={s.userList}
-                            userLimit={7}
-                            users={owners}
-                            onClickSeeAll={onClickSeeAllWearers}
-                          />
-                        ) : (
-                          <></>
-                        )} */}
-                      <InfoCard mainColor="var(--blue)">
-                        <a
-                          href={`https://designers.digitalax.xyz/designers/${designerItem.designerId}`}
-                          target="_blank"
-                        >
-                          <div className={s.name}>
-                            {" "}
-                            {designerItem.designerId}{" "}
-                          </div>
-                        </a>
-                        <div className={s.description}>
-                          {designerItem.description}
-                        </div>
-                      </InfoCard>
-                      <a
-                        href="https://designers.digitalax.xyz/getdressed"
-                        target="_blank"
-                      >
-                        <button type="button" className={s.getDressedButton}>
-                          GET BESPOKE DRESSED BY THIS DESIGNER!
-                        </button>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </Container>
-            </section>
-          </>
-        );
-      })}
+      <SlidingPanels />
     </>
   );
 };
