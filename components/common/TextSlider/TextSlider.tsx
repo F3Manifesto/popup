@@ -7,10 +7,10 @@ interface Props {
 
 const TextSlider: FC<Props> = ({ black }) => {
   const items = [
-    'DECENTRALIZED COMMERCE',
+    /*'DECENTRALIZED COMMERCE',
     'HYBRID DIGI-FIZZY',
     'WEAR TO DEFI',
-    'REP YOUR DRIP IRL',
+    'REP YOUR DRIP IRL',*/
   ]
 
   return (

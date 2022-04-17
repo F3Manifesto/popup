@@ -98,7 +98,7 @@ const CartSidebarView: FC = () => {
                 className="w-full pt-1 pb-4 text-2xl leading-7 font-bold tracking-wide cursor-pointer inline-block text-white text-center"
                 onClick={handleClose}
               >
-                DRIP Inventory
+                Pop Up Inventory
               </h2>
             </Link>
             <ul className="py-6 space-y-6 sm:py-0 sm:space-y-0 sm:divide-y sm:divide-accents-3 border-t border-accents-3">
