@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const imageArray = [
-  "/images/panels/panel1.png",
+  "/images/panels/walletsetup.png",
   "/images/panels/panel1.png",
   "/images/panels/panel1.png",
 ];
