@@ -16,6 +16,7 @@ import {
   AuthOptionsView,
   CryptoOptionsView,
   CryptoSignUpView,
+  MetamaskMobileView,
 } from "@components/auth";
 import { NFTClaimedView } from "@components/modals";
 import CheckoutWarning from "@components/modals/CheckoutWarning";
@@ -54,6 +55,11 @@ const dynamicProps = {
 
 const SignUpView = dynamic(
   () => import("@components/auth/SignUpView"),
+  dynamicProps
+);
+
+const MetamaskMobile = dynamic(
+  () => import("@components/auth/MetamaskMobileView"),
   dynamicProps
 );
 
@@ -222,6 +228,7 @@ const Layout: FC<Props> = ({
         <Modal open={displayModal} onClose={closeModal}>
           {modalView === "LOGIN_VIEW" && <LoginView />}
           {modalView === "SIGNUP_VIEW" && <SignUpView />}
+          {modalView === "METAMASK_MOBILE" && <MetamaskMobile />}
           {modalView === "FORGOT_VIEW" && <ForgotPassword />}
           {modalView === "AUTH_OPTIONS_VIEW" && <AuthOptionsView />}
           {modalView === "CRYPTO_OPTIONS_VIEW" && <CryptoOptionsView />}

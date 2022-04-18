@@ -11,11 +11,9 @@ const Navbar: FC = () => (
     <div className="relative flex flex-row justify-between align-center">
       <div className={`${s.navLeft} flex items-center`}>
         <div className={s.branding}>
-          <Link href="/">
-            <a className={s.logo} aria-label="Logo">
-              <img src="/images/logo.png" />
-            </a>
-          </Link>
+          <a href="/" className={s.logo} aria-label="Logo">
+            <img src="/images/logo.png" />
+          </a>
         </div>
         <nav className={`${s.navItems} hidden ml-6 space-x-6 lg:block`}>
           <Link href="https://docs.f3manifesto.xyz/">

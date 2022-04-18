@@ -71,11 +71,12 @@ const ProductView: FC<Props> = ({ product }) => {
   const { user, account, monaPrice, designers } = useMain();
   // const [loveCount, setLoveCount] = useState(0)
   // const [viewCount, setViewCount] = useState(0)
-  const [totalAmount, setTotalAmount] = useState(0);
-  const [soldAmount, setSoldAmount] = useState(0);
-  const [rarity, setRarity] = useState("");
-  const [garmentChildren, setGarmentChildren] = useState([]);
+  // const [totalAmount, setTotalAmount] = useState(0);
+  // const [soldAmount, setSoldAmount] = useState(0);
+  // const [rarity, setRarity] = useState("");
   // const [isFetchedViewCount, setIsFetchedViewCount] = useState(false)
+  const [garmentChildren, setGarmentChildren] = useState([]);
+  const [sourceFile, setSourceFile] = useState("");
 
   const [curImgIndex, setCurImgIndex] = useState(0);
   const { asPath } = useRouter();
@@ -109,9 +110,9 @@ const ProductView: FC<Props> = ({ product }) => {
       console.log("collectionId: ", collectionId);
       console.log("dripMarketplaceOffer: ", dripMarketplaceOffer);
 
-      setTotalAmount(dripMarketplaceOffer.garmentCollection?.garments?.length);
-      setSoldAmount(dripMarketplaceOffer.amountSold);
-      setRarity(dripMarketplaceOffer.garmentCollection?.rarity);
+      // setTotalAmount(dripMarketplaceOffer.garmentCollection?.garments?.length);
+      // setSoldAmount(dripMarketplaceOffer.amountSold);
+      // setRarity(dripMarketplaceOffer.garmentCollection?.rarity);
       const children: any = [];
 
       if (dripMarketplaceOffer.garmentCollection?.garments[0].children.length) {
@@ -125,6 +126,16 @@ const ProductView: FC<Props> = ({ product }) => {
           }
         );
       }
+
+      const tokenUri =
+        dripMarketplaceOffer.garmentCollection?.garments[0].tokenUri;
+
+      fetch(tokenUri)
+        .then((response) => response.json())
+        .then((jsonData) => setSourceFile(jsonData["Source_File"]))
+        .catch((error) => {
+          console.error(error);
+        });
 
       setGarmentChildren(children);
       console.log("garmentChildren: ", children.length);
@@ -325,6 +336,15 @@ const ProductView: FC<Props> = ({ product }) => {
                   ))}
               </div>
 
+              <InfoCard mainColor="transparent" bodyClass={s.productDesc}>
+                <div className={s.infoCard}>
+                  {/* <div className={s.skinName}>
+                    <div className={s.text}> {rarity} </div>
+                  </div> */}
+                  <div className={s.description}>{product?.description}</div>
+                </div>
+              </InfoCard>
+
               <div className={s.buttonWrapper}>
                 <PriceTag
                   withoutDollarSign={true}
@@ -384,16 +404,6 @@ const ProductView: FC<Props> = ({ product }) => {
                 <div>
                   {/* <p className={s.openCollection}>Open Collection</p>
                    */}
-                  <InfoCard mainColor="transparent" bodyClass={s.productDesc}>
-                    <div className={s.infoCard}>
-                      {/* <div className={s.skinName}>
-                        <div className={s.text}> {rarity} </div>
-                      </div> */}
-                      <div className={s.description}>
-                        {product?.description}
-                      </div>
-                    </div>
-                  </InfoCard>
                 </div>
 
                 {/* <button type="button" className={s.readBtn} onClick={onReadBtn}>
@@ -437,7 +447,7 @@ const ProductView: FC<Props> = ({ product }) => {
           </div>
         </div>
       </Container>
-      <BannerBar className={s.homeHeroBar} />
+      <BannerBar className={s.homeHeroBar} sourceFile={sourceFile} />
       <SlidingPanels />
     </>
   );

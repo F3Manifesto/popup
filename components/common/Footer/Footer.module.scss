@@ -46,6 +46,7 @@
 .footerWrapper .imageLogo {
   // height: 80px;
   margin: auto;
+  width: 150px;
 }
 
 .footerWrapper .logo_big {
@@ -129,12 +130,12 @@ a.footer-text-white {
   }
   
   .footerWrapper .iconsLine img {
-    height: 25px;
+    height: 30px;
     margin-right: 10px;
   }
 
   .footerWrapper .mediumIcon {
-    height: 25px;
+    height: 30px;
     margin-left: 5px;
   }
 
@@ -161,26 +162,23 @@ a.footer-text-white {
   }
 
   .footerWrapper .description {
-    font-size: 22px;
-    line-height: 25px;
+    font-size: 10px;
+    line-height: 15px;
     text-align: center;
   }
 
-
-
-   
   .footerWrapper .iconsLine {
     justify-content: center;
   }
 
   .footerWrapper .iconsLine img {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
     margin-right: 5px;
   }
 
   .footerWrapper .mediumIcon {
-    height: 20px;
+    height: 30px;
   }
   .footerWrapper .tiktokIcon {
     margin-right: 5px;
@@ -195,8 +193,8 @@ a.footer-text-white {
   } 
 
   .footerWrapper .mirrorIcon {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
   }
 
   .footerWrapper .youtubeIcon {
@@ -209,76 +207,71 @@ a.footer-text-white {
     height: 33px;
   }
 }
- 
-  
-    @media (max-width: 420px) {
-  
-      
-    }
 
-@media (max-width: 780px) {
-  .footerWrapper {
-    display: flex;
-    flex-direction: column;
-  }
 
-  .footerWrapper .textLogo {
-    text-align: center;
-  }
+// @media (max-width: 780px) {
+//   .footerWrapper {
+//     display: flex;
+//     flex-direction: column;
+//   }
 
-  .footerWrapper .imageLogo {
-    // height: 30px;
-    margin: auto;
-  }
+//   .footerWrapper .textLogo {
+//     text-align: center;
+//   }
 
-  .footerWrapper .logo_big {
-    height: 15px;
-    margin-left: 5px;
-  }
+//   .footerWrapper .imageLogo {
+//     // height: 30px;
+//     margin: auto;
+//   }
 
-  .footerWrapper .description {
-    font-size: 10px;
-    line-height: 15px;
-  }
+//   .footerWrapper .logo_big {
+//     height: 15px;
+//     margin-left: 5px;
+//   }
 
-  .footerWrapper .iconsLine {
-    justify-content: center;
-  }
+//   .footerWrapper .description {
+//     font-size: 10px;
+//     line-height: 15px;
+//   }
 
-  .footerWrapper .iconsLine img {
-    height: 20px;
-    width: 20px;
-    margin-right: 5px;
-  }
+//   .footerWrapper .iconsLine {
+//     justify-content: center;
+//   }
 
-  .footerWrapper .mediumIcon {
-    height: 10px;
-  }
-  .footerWrapper .tiktokIcon {
-    margin-right: 5px;
-  }
+//   .footerWrapper .iconsLine img {
+//     height: 20px;
+//     width: 20px;
+//     margin-right: 5px;
+//   }
 
-  .footerWrapper .twitchIcon {
-    margin-right: 5px;
-  }
+//   .footerWrapper .mediumIcon {
+//     height: 10px;
+//   }
+//   .footerWrapper .tiktokIcon {
+//     margin-right: 5px;
+//   }
 
-  .footerWrapper .discordIcon {
-    margin-right: 10px;
-  } 
+//   .footerWrapper .twitchIcon {
+//     margin-right: 5px;
+//   }
 
-  .footerWrapper .mirrorIcon {
-    width: 10px;
-    height: 10px;
-  }
+//   .footerWrapper .discordIcon {
+//     margin-right: 10px;
+//   } 
 
-  .footerWrapper .youtubeIcon {
-    width: 10px;
-    height: 10px;
-  }
+//   .footerWrapper .mirrorIcon {
+//     width: 10px;
+//     height: 10px;
+//   }
 
-  .footerWrapper .gitbookIcon {
-    width: 15px;
-    height: 15px;
-  }
+//   .footerWrapper .youtubeIcon {
+//     width: 10px;
+//     height: 10px;
+//   }
 
-}
+//   .footerWrapper .gitbookIcon {
+//     width: 15px;
+//     height: 15px;
+//   }
+
+// }

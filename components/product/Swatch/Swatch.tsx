@@ -49,8 +49,8 @@ const Swatch: FC<Omit<ButtonProps, "variant"> & Props> = ({
     className
   );
 
-  console.log("color: ", color);
-  console.log("lightOrDark(color): ", lightOrDark(color));
+  // console.log("color: ", color);
+  // console.log("lightOrDark(color): ", lightOrDark(color));
 
   return (
     <Button

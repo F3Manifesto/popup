@@ -1,14 +1,14 @@
-import React from 'react';
-import classnames from 'classnames';
-import styles from './styles.module.scss';
+import React from "react";
+import classnames from "classnames";
+import styles from "./styles.module.scss";
 
-const BannerBar = ({ className }) => {
+const BannerBar = ({ className, sourceFile }) => {
   const classes = classnames(styles.wrapper, className);
   return (
-      <div className={classes}>
+    <div className={classes}>
       <div>
         <div className={styles.node}>
-          <a href='/' target='_blank'>
+          <a href={sourceFile} target="_blank">
             VIEW ALL CC0 SOURCE MATERIAL
           </a>
         </div>

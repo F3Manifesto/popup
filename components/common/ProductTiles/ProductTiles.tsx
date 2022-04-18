@@ -2,7 +2,6 @@ import { FC, useState, useEffect } from "react";
 import Image from "next/image";
 import type { Product } from "@commerce/types";
 import styles from "./ProductTiles.module.scss";
-import Link from "next/link";
 
 interface Props {
   products?: Array<Product>;
