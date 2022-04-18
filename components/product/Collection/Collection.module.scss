@@ -113,7 +113,7 @@
         justify-content: space-between;
         margin-top: 10px;
         position: relative;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
+        border-radius: 15px;
 
         transition: 0.3s all;
         &:hover {
@@ -124,7 +124,7 @@
         span {
           font-family: 'LEMON MILK';
           font-weight: 700;
-          font-size: 20px;
+          font-size: 15px;
           line-height: 136%;
           text-align: center;
       
@@ -138,7 +138,7 @@
   
         @include lg-width {
           span {
-            font-size: 30px;
+            font-size: 20px;
           }
         }
       }

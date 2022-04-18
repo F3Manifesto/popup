@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 import Image from "next/image";
 import type { Product } from "@commerce/types";
 import styles from "./ProductTiles.module.scss";
@@ -17,17 +17,60 @@ const shuffleArray = (array: Array<any>) => {
   return array;
 };
 
+function useWindowDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: 0,
+    height: 0,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      const { innerWidth: width, innerHeight: height } = window;
+
+      setWindowDimensions({
+        width,
+        height,
+      });
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return windowDimensions;
+}
+
 const ProductTiles: FC<Props> = ({ products }) => {
-  const shuffledArray = shuffleArray(products || []);
+  const screenWidth = useWindowDimensions().width;
+  const [isMobile, setIsMobile] = useState(false);
+  const [shuffledArray, setShuffledArray] = useState([]);
+  // let shuffledArray = []
   const placeholderImg = "/product-img-placeholder.svg";
 
-  console.log("shuffledArray: ", shuffledArray);
+  useEffect(() => {
+    const shuffled = shuffleArray(products || []);
+    setShuffledArray(shuffled);
+  }, []);
+
+  useEffect(() => {
+    screenWidth > 707 ? setIsMobile(false) : setIsMobile(true);
+  }, [screenWidth]);
+
+  // console.log("shuffledArray: ", shuffledArray);
+  // console.log("isMobile: ", isMobile);
+
   return (
     <div className={styles.wrapper}>
-      {shuffledArray.map((product: Product, index: number) => {
-        return (
-          <Link key={index} href={`product${product?.path}`}>
-            <a className={styles.tileWrapper}>
+      {shuffledArray
+        .slice(0, isMobile ? 60 : 80)
+        .map((product: Product, index: number) => {
+          return (
+            // <Link key={index} href={`product${product?.path}`}>
+            <a
+              key={index}
+              href={`product${product?.path}`}
+              className={styles.tileWrapper}
+            >
               {product?.images && (
                 <Image
                   alt={product.name || "Product Image"}
@@ -40,9 +83,9 @@ const ProductTiles: FC<Props> = ({ products }) => {
                 />
               )}
             </a>
-          </Link>
-        );
-      })}
+            // </Link>
+          );
+        })}
     </div>
   );
 };

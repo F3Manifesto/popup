@@ -90,6 +90,9 @@
           border: 2px solid var(--blue);
           box-sizing: border-box;
           border-radius: 9px;
+          height: 48px;
+          overflow: hidden;
+          transition: 0.3s all;
 
           img {
             object-fit: cover;
@@ -103,8 +106,8 @@
           
           &:hover {
             cursor: pointer;
+            transition: 0.3s all;
             transform: scale(1.1);
-            
           }
         }
       
@@ -206,6 +209,7 @@
           display: flex;
           background: var(--blue);
           border: none;
+          border-radius: 15px;
 
           &:focus {
             outline: none;
