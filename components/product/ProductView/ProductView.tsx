@@ -214,6 +214,10 @@ const ProductView: FC<Props> = ({ product }) => {
     openModal();
   };
 
+  const onClickProduct = () => {
+    console.log("click product");
+  };
+
   useEffect(() => {}, []);
 
   const monaAmount =
@@ -255,7 +259,11 @@ const ProductView: FC<Props> = ({ product }) => {
                       onSlide={setCurImgIndex}
                     >
                       {product.images.map((image, i) => (
-                        <div key={image.url} className={s.imageContainer}>
+                        <div
+                          key={image.url}
+                          className={s.imageContainer}
+                          onClick={() => onClickProduct()}
+                        >
                           <Image
                             className={s.img}
                             src={image.url!}

@@ -1,7 +1,7 @@
-import { FC } from 'react'
-import NextHead from 'next/head'
-import { DefaultSeo } from 'next-seo'
-import config from '@config/seo.json'
+import { FC } from "react";
+import NextHead from "next/head";
+import { DefaultSeo } from "next-seo";
+import config from "@config/seo.json";
 
 const Head: FC = () => {
   return (
@@ -66,14 +66,14 @@ const Head: FC = () => {
         />
         <link
           rel="preload"
-          href="/fonts/BebasNeue-Regular.ttf"
+          href="/fonts/Akira Expanded Demo.otf"
           as="font"
           crossOrigin=""
         />
-        <script src="/js/TweenMax.min.js"></script>  
+        <script src="/js/TweenMax.min.js"></script>
       </NextHead>
     </>
-  )
-}
+  );
+};
 
-export default Head
+export default Head;

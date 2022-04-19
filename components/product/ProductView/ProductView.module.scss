@@ -27,7 +27,7 @@
     font-size: 3.5vw;
     line-height: 125%;
   
-    font-family: NewYork;
+    font-family: 'Akira Expanded';
     font-style: normal;
     font-weight: 400;
     margin: auto;
@@ -184,6 +184,7 @@
             height: 300px;
 
             .imageContainer {
+              cursor: pointer;
               & > div {
                 @apply h-full;
                 & > div {
