@@ -3,6 +3,6 @@
 }
 
 .root .scrollfix {
-  -webkit-overflow-scrolling: touch;
-  height: calc(100%+1px);
+  -webkit-overflow-scrolling: touch !important;
+  height: calc(100% + 1px) !important;
 }

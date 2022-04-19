@@ -16,18 +16,18 @@ interface Props {
 const Sidebar: FC<Props> = ({ children, open = false, onClose }) => {
   const ref = useRef() as React.MutableRefObject<HTMLDivElement>;
 
-  useEffect(() => {
-    if (ref.current) {
-      if (open) {
-        disableBodyScroll(ref.current);
-      } else {
-        enableBodyScroll(ref.current);
-      }
-    }
-    return () => {
-      clearAllBodyScrollLocks();
-    };
-  }, [open]);
+  // useEffect(() => {
+  //   if (ref.current) {
+  //     if (open) {
+  //       disableBodyScroll(ref.current);
+  //     } else {
+  //       enableBodyScroll(ref.current);
+  //     }
+  //   }
+  //   return () => {
+  //     clearAllBodyScrollLocks();
+  //   };
+  // }, [open]);
 
   return (
     <Portal>
@@ -42,8 +42,8 @@ const Sidebar: FC<Props> = ({ children, open = false, onClose }) => {
               <div className="h-screen md:w-screen md:max-w-md">
                 <div
                   className={[
-                    s.scrollfix,
                     "h-screen flex flex-col text-base bg-blue shadow-xl overflow-y-auto",
+                    s.scrollfix,
                   ].join(" ")}
                 >
                   {children}
