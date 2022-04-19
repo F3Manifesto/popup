@@ -79,26 +79,30 @@ const ProductItem: FC<Props> = ({
           </a>
         } */}
 
-        <Link href={`/product/${product.slug}`} {...props}>
-          <a className={cn(s.root, className)}>
-            <>
-              <div className={s.imageContainer}>
-                {product?.images && (
-                  <Image
-                    alt={product.name || "Product Image"}
-                    className={s.productImage}
-                    src={product.images[0].url || placeholderImg}
-                    height={540}
-                    width={540}
-                    quality="85"
-                    layout="responsive"
-                    {...imgProps}
-                  />
-                )}
-              </div>
-            </>
-          </a>
-        </Link>
+        {/* <Link > */}
+        <a
+          className={cn(s.root, className)}
+          href={`/product/${product.slug}`}
+          {...props}
+        >
+          <>
+            <div className={s.imageContainer}>
+              {product?.images && (
+                <Image
+                  alt={product.name || "Product Image"}
+                  className={s.productImage}
+                  src={product.images[0].url || placeholderImg}
+                  height={540}
+                  width={540}
+                  quality="85"
+                  layout="responsive"
+                  {...imgProps}
+                />
+              )}
+            </div>
+          </>
+        </a>
+        {/* </Link> */}
 
         <div className={s.productPriceSection}>
           <PriceTag

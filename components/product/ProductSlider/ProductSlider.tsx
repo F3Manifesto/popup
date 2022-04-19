@@ -1,4 +1,4 @@
-import { useKeenSlider } from 'keen-slider/react'
+import { useKeenSlider } from "keen-slider/react";
 import React, {
   Children,
   FC,
@@ -7,40 +7,40 @@ import React, {
   useState,
   useRef,
   useEffect,
-} from 'react'
-import cn from 'classnames'
+} from "react";
+import cn from "classnames";
 
-import s from './ProductSlider.module.css'
-import "keen-slider/keen-slider.min.css"
+import s from "./ProductSlider.module.css";
+import "keen-slider/keen-slider.min.css";
 
 export interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  className?: string
-  imageId: number
-  onSlide(value: number): void
+  className?: string;
+  imageId: number;
+  onSlide(value: number): void;
 }
 
 const ProductSlider: FC<Props> = ({ children, imageId, onSlide }) => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isMounted, setIsMounted] = useState(false)
-  const sliderContainerRef = useRef<HTMLDivElement>(null)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
+  const sliderContainerRef = useRef<HTMLDivElement>(null);
 
   const [ref, slider] = useKeenSlider<HTMLDivElement>({
     loop: true,
     slidesPerView: 1,
     mounted: () => setIsMounted(true),
     slideChanged(s) {
-      setCurrentSlide(s.details().relativeSlide)
-      onSlide(s.details().relativeSlide)
+      setCurrentSlide(s.details().relativeSlide);
+      onSlide(s.details().relativeSlide);
     },
-  })
+  });
 
   // Stop the history navigation gesture on touch devices
   useEffect(() => {
     const preventNavigation = (event: TouchEvent) => {
       // Center point of the touch area
-      const touchXPosition = event.touches[0].pageX
+      const touchXPosition = event.touches[0].pageX;
       // Size of the touch area
-      const touchXRadius = event.touches[0].radiusX || 0
+      const touchXRadius = event.touches[0].radiusX || 0;
 
       // We set a threshold (10px) on both sizes of the screen,
       // if the touch area overlaps with the screen edges
@@ -50,30 +50,29 @@ const ProductSlider: FC<Props> = ({ children, imageId, onSlide }) => {
         touchXPosition - touchXRadius < 10 ||
         touchXPosition + touchXRadius > window.innerWidth - 10
       )
-        event.preventDefault()
-    }
+        event.preventDefault();
+    };
 
     sliderContainerRef.current!.addEventListener(
-      'touchstart',
+      "touchstart",
       preventNavigation
-    )
+    );
 
     return () => {
       if (sliderContainerRef.current) {
         sliderContainerRef.current!.removeEventListener(
-          'touchstart',
+          "touchstart",
           preventNavigation
-        )
+        );
       }
-    }
-  }, [])
+    };
+  }, []);
 
   useEffect(() => {
-    // console.log('imageId: ', imageId)
     if (slider && imageId !== currentSlide) {
-      slider.moveToSlideRelative(imageId)
+      slider.moveToSlideRelative(imageId);
     }
-  }, [imageId])
+  }, [imageId]);
 
   return (
     <div className={s.root} ref={sliderContainerRef}>
@@ -100,12 +99,12 @@ const ProductSlider: FC<Props> = ({ children, imageId, onSlide }) => {
               props: {
                 ...child.props,
                 className: `${
-                  child.props.className ? `${child.props.className} ` : ''
+                  child.props.className ? `${child.props.className} ` : ""
                 }keen-slider__slide`,
               },
-            }
+            };
           }
-          return child
+          return child;
         })}
       </div>
       {slider && (
@@ -119,17 +118,17 @@ const ProductSlider: FC<Props> = ({ children, imageId, onSlide }) => {
                   [s.positionIndicatorActive]: currentSlide === idx,
                 })}
                 onClick={() => {
-                  slider.moveToSlideRelative(idx)
+                  slider.moveToSlideRelative(idx);
                 }}
               >
                 <div className={s.dot} />
               </button>
-            )
+            );
           })}
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default ProductSlider
+export default ProductSlider;
