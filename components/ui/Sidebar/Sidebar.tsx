@@ -1,33 +1,33 @@
-import s from './Sidebar.module.css'
-import Portal from '@reach/portal'
-import { FC, useEffect, useRef } from 'react'
+import s from "./Sidebar.module.css";
+import Portal from "@reach/portal";
+import { FC, useEffect, useRef } from "react";
 import {
   disableBodyScroll,
   enableBodyScroll,
   clearAllBodyScrollLocks,
-} from 'body-scroll-lock'
+} from "body-scroll-lock";
 
 interface Props {
-  children: any
-  open: boolean
-  onClose: () => void
+  children: any;
+  open: boolean;
+  onClose: () => void;
 }
 
 const Sidebar: FC<Props> = ({ children, open = false, onClose }) => {
-  const ref = useRef() as React.MutableRefObject<HTMLDivElement>
+  const ref = useRef() as React.MutableRefObject<HTMLDivElement>;
 
   useEffect(() => {
     if (ref.current) {
       if (open) {
-        disableBodyScroll(ref.current)
+        disableBodyScroll(ref.current);
       } else {
-        enableBodyScroll(ref.current)
+        enableBodyScroll(ref.current);
       }
     }
     return () => {
-      clearAllBodyScrollLocks()
-    }
-  }, [open])
+      clearAllBodyScrollLocks();
+    };
+  }, [open]);
 
   return (
     <Portal>
@@ -39,8 +39,8 @@ const Sidebar: FC<Props> = ({ children, open = false, onClose }) => {
               onClick={onClose}
             />
             <section className="absolute inset-y-0 right-0 pl-10 max-w-full flex sm:pl-16 outline-none">
-              <div className="h-full md:w-screen md:max-w-md">
-                <div className="h-full flex flex-col text-base bg-accents-1 shadow-xl overflow-y-auto">
+              <div className="h-screen md:w-screen md:max-w-md">
+                <div className="h-screen flex flex-col text-base bg-accents-1 shadow-xl overflow-y-auto">
                   {children}
                 </div>
               </div>
@@ -49,7 +49,7 @@ const Sidebar: FC<Props> = ({ children, open = false, onClose }) => {
         </div>
       ) : null}
     </Portal>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
