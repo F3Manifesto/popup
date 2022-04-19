@@ -5,6 +5,11 @@
   z-index: 10;
 }
 
+.lockScroll {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .collection1 {
 
 }

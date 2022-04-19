@@ -211,9 +211,13 @@ const Layout: FC<Props> = ({
     }
     return s.marketplace;
   };
+
+  const isLockScroll = displaySidebar;
+
+  console.log("isLockScroll: ", isLockScroll);
   return (
     <CommerceProvider locale={locale}>
-      <div className={cn(s.root)}>
+      <div className={cn(s.root, isLockScroll && s.lockScroll)}>
         <div
           id="mainWrapper"
           className={cn(s.mainWrapper, getMainWrapperClassName())}
