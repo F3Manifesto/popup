@@ -1,3 +1,8 @@
 .root {
   @apply fixed inset-0 overflow-hidden h-full z-50;
 }
+
+.root .scrollfix {
+  -webkit-overflow-scrolling: touch;
+  height: calc(100%+1px);
+}

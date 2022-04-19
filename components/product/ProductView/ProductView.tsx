@@ -115,7 +115,9 @@ const ProductView: FC<Props> = ({ product }) => {
       // setRarity(dripMarketplaceOffer.garmentCollection?.rarity);
       const children: any = [];
 
-      if (dripMarketplaceOffer.garmentCollection?.garments[0].children.length) {
+      if (
+        dripMarketplaceOffer?.garmentCollection?.garments[0].children.length
+      ) {
         dripMarketplaceOffer.garmentCollection?.garments[0].children.forEach(
           async (child: any) => {
             const info = await fetchTokenUri(child.tokenUri);
@@ -128,14 +130,15 @@ const ProductView: FC<Props> = ({ product }) => {
       }
 
       const tokenUri =
-        dripMarketplaceOffer.garmentCollection?.garments[0].tokenUri;
+        dripMarketplaceOffer?.garmentCollection?.garments[0].tokenUri;
 
-      fetch(tokenUri)
-        .then((response) => response.json())
-        .then((jsonData) => setSourceFile(jsonData["Source_File"]))
-        .catch((error) => {
-          console.error(error);
-        });
+      tokenUri &&
+        fetch(tokenUri)
+          .then((response) => response.json())
+          .then((jsonData) => setSourceFile(jsonData["Source_File"]))
+          .catch((error) => {
+            console.error(error);
+          });
 
       setGarmentChildren(children);
       console.log("garmentChildren: ", children.length);
