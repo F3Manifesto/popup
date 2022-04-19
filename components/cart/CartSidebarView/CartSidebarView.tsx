@@ -1,40 +1,40 @@
-import { FC } from 'react'
-import cn from 'classnames'
-import Link from 'next/link'
+import { FC } from "react";
+import cn from "classnames";
+import Link from "next/link";
 
-import CartItem from '../CartItem'
-import s from './CartSidebarView.module.css'
-import { Button } from '@components/ui'
-import { UserNav } from '@components/common'
-import { useUI } from '@components/ui/context'
-import { Bag, Cross, Check } from '@components/icons'
+import CartItem from "../CartItem";
+import s from "./CartSidebarView.module.css";
+import { Button } from "@components/ui";
+import { UserNav } from "@components/common";
+import { useUI } from "@components/ui/context";
+import { Bag, Cross, Check } from "@components/icons";
 
-import useCart from '@framework/cart/use-cart'
-import usePrice from '@framework/product/use-price'
+import useCart from "@framework/cart/use-cart";
+import usePrice from "@framework/product/use-price";
 
-import { useMain } from 'context'
+import { useMain } from "context";
 
 const CartSidebarView: FC = () => {
-  const { closeSidebar, setModalView, openModal } = useUI()
-  const { data, isLoading, isEmpty } = useCart()
-  const { cryptoPrice } = useMain()
+  const { closeSidebar, setModalView, openModal } = useUI();
+  const { data, isLoading, isEmpty } = useCart();
+  const { cryptoPrice } = useMain();
 
   const { price: subTotal } = usePrice(
     data && {
       amount: Number(data.subtotalPrice),
       currencyCode: data.currency.code,
     }
-  )
+  );
   const { price: total } = usePrice(
     data && {
       amount: Number(data.totalPrice),
       currencyCode: data.currency.code,
     }
-  )
-  const handleClose = () => closeSidebar()
+  );
+  const handleClose = () => closeSidebar();
 
-  const error = null
-  const success = null
+  const error = null;
+  const success = null;
 
   return (
     <div
@@ -42,7 +42,7 @@ const CartSidebarView: FC = () => {
         [s.empty]: error || success || isLoading || isEmpty,
       })}
     >
-      <header className="px-4 pt-6 pb-4 sm:px-6">
+      <header className="pl-4 pr-2 pt-4 pb-4 sm:px-1">
         <div className="flex items-start justify-between space-x-3">
           <div className="h-7 flex items-center">
             <button
@@ -50,7 +50,7 @@ const CartSidebarView: FC = () => {
               aria-label="Close panel"
               className="hover:font-bold transition ease-in-out duration-150"
             >
-              <Cross className="h-6 w-6" color='white' />
+              <Cross className="h-6 w-6" color="white" />
             </button>
           </div>
           <div className="space-y-1">
@@ -92,7 +92,7 @@ const CartSidebarView: FC = () => {
         </div>
       ) : (
         <>
-          <div className="px-4 sm:px-6 flex-1">
+          <div className="px-4 sm:px-6 flex-1 bg-blue">
             <Link href="/cart">
               <h2
                 className="w-full pt-1 pb-4 text-2xl leading-7 font-bold tracking-wide cursor-pointer inline-block text-white text-center"
@@ -132,10 +132,10 @@ const CartSidebarView: FC = () => {
               <div className="flex justify-between border-t border-accents-3 py-3 font-bold mb-10 text-white">
                 <span>Total</span>
                 <span>
-                  {total}{' '}
+                  {total}{" "}
                   {cryptoPrice ? (
                     <>
-                      ({(Number(data?.totalPrice) * cryptoPrice).toFixed(2)}){' '}
+                      ({(Number(data?.totalPrice) * cryptoPrice).toFixed(2)}){" "}
                     </>
                   ) : null}
                 </span>
@@ -143,8 +143,8 @@ const CartSidebarView: FC = () => {
             </div>
             <Button
               onClick={() => {
-                setModalView('AUTH_OPTIONS_VIEW')
-                openModal()
+                setModalView("AUTH_OPTIONS_VIEW");
+                openModal();
               }}
               variant="new-slim"
               width="100%"
@@ -155,7 +155,7 @@ const CartSidebarView: FC = () => {
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default CartSidebarView
+export default CartSidebarView;

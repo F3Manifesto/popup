@@ -74,7 +74,10 @@ const UserNav: FC<Props> = ({ className }) => {
             </li>
             <li
               className={[s.item, s.hamburger].join(" ")}
-              onClick={() => setDisplay(!display)}
+              onClick={() => {
+                console.log("test");
+                setDisplay(!display);
+              }}
             >
               {/* <span className="">☰</span> */}
               <div></div>

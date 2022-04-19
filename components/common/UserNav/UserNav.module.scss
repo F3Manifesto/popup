@@ -93,6 +93,8 @@
 
 .mobileMenu {
   display: none;
+  z-index: 1;
+  
   @media (max-width: 780px) {
     display: block;
   }

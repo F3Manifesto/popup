@@ -1,5 +1,5 @@
 .root {
-  @apply h-full flex flex-col bg-blue border border-dotted border-accents-4;
+  @apply flex flex-col bg-blue border border-dotted border-accents-4;
 }
 
 .root.empty {
