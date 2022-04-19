@@ -40,7 +40,10 @@ const Sidebar: FC<Props> = ({ children, open = false, onClose }) => {
             />
             <section className="absolute inset-y-0 right-0 pl-10 max-w-full flex sm:pl-16 outline-none">
               <div className="h-screen md:w-screen md:max-w-md">
-                <div className="h-screen flex flex-col text-base bg-accents-1 shadow-xl overflow-y-auto">
+                <div
+                  className="h-screen flex flex-col text-base bg-blue shadow-xl overflow-y-auto"
+                  style={{ WebkitOverflowScrolling: "touch" }}
+                >
                   {children}
                 </div>
               </div>
