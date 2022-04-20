@@ -13,3 +13,9 @@
 .root.error {
   @apply bg-red text-yellow;
 }
+
+.root .mobileMenu {
+  @apply ml-10 sm:ml-16;
+  left: 0;
+  width: 100%;
+}

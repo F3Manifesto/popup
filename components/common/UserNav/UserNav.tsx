@@ -18,11 +18,12 @@ import ClickOutside from "@lib/click-outside";
 
 interface Props {
   className?: string;
+  mobileClassName?: string;
 }
 
 const countItem = (count: number, item: LineItem) => count + item.quantity;
 
-const UserNav: FC<Props> = ({ className }) => {
+const UserNav: FC<Props> = ({ className, mobileClassName }) => {
   const { data } = useCart();
   const { toggleSidebar, openModal, setModalView } = useUI();
   const { user, dispatch } = useMain();
@@ -87,7 +88,7 @@ const UserNav: FC<Props> = ({ className }) => {
           </ul>
         </div>
         {display && (
-          <ul className={s.mobileMenu} ref={ref}>
+          <ul className={cn(s.mobileMenu, mobileClassName)} ref={ref}>
             <li>
               <Link href="https://docs.f3manifesto.xyz/">
                 <a className={s.link} target="_blank">

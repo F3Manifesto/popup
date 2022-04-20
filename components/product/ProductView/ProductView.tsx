@@ -337,8 +337,8 @@ const ProductView: FC<Props> = ({ product }) => {
                     return 0;
                   })
                   .map((opt) => (
-                    <div className="pb-4 pr-6" key={opt.displayName}>
-                      <div className="flex flex-row py-4">
+                    <div className="pb-1 md:pb-4 pr-6" key={opt.displayName}>
+                      <div className="flex flex-row py-1 md:py-4">
                         {opt.values.map((v, i: number) => {
                           const active = (choices as any)[
                             opt.displayName.toLowerCase()

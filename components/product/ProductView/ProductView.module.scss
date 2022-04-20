@@ -76,7 +76,7 @@
 
       .previewImages {
         position: absolute;
-        left: -32px;
+        left: -30px;
         top: 10px;
         display: flex;
         flex-direction: column;
@@ -142,8 +142,7 @@
         .sliderContainer {
           @apply z-10 inset-0 flex items-center justify-center overflow-x-hidden;
           height: 100%;
-          width: 300px;
-        
+          width: 250px;
         
           @include sm-width {
             width: 400px;
@@ -187,14 +186,13 @@
             // padding: 2rem;
             overflow: hidden;
             border-radius: 2rem;
-            height: 300px;
+            height: 250px;
 
             .imageContainer {
-              width: 300px;
+              width: 250px;
 
               @include sm-width {
                 width: 400px;
-                
               }
             
               @include md-width {
@@ -639,6 +637,12 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
+  width: 250px;
+
+  @include sm-width {
+    width: 100%;
+  }
+  
 }
 
 
