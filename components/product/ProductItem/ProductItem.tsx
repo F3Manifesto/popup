@@ -79,7 +79,13 @@ const ProductItem: FC<Props> = ({
           </a>
         } */}
 
-        {/* <Link > */}
+        {/* <Link 
+          href={`/product/${product.slug}`}
+          {...props}
+        >
+        <a
+          className={cn(s.root, className)}          
+        > */}
         <a
           className={cn(s.root, className)}
           href={`/product/${product.slug}`}
