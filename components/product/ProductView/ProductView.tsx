@@ -69,6 +69,7 @@ const ProductView: FC<Props> = ({ product }) => {
   });
 
   const { user, account, monaPrice, designers } = useMain();
+
   // const [loveCount, setLoveCount] = useState(0)
   // const [viewCount, setViewCount] = useState(0)
   // const [totalAmount, setTotalAmount] = useState(0);
@@ -77,6 +78,10 @@ const ProductView: FC<Props> = ({ product }) => {
   // const [isFetchedViewCount, setIsFetchedViewCount] = useState(false)
   const [garmentChildren, setGarmentChildren] = useState([]);
   const [sourceFile, setSourceFile] = useState("");
+
+  const [zoomMedia, setZoomMedia] = useState(-1);
+
+  const [previewSlidingImage, setPreviewSlidingImage] = useState("");
 
   const [curImgIndex, setCurImgIndex] = useState(0);
   const { asPath } = useRouter();
@@ -99,6 +104,10 @@ const ProductView: FC<Props> = ({ product }) => {
 
   const handleOnclick = (i: number) => {
     setCurImgIndex(i);
+  };
+
+  const openPreview = (imageFile: string) => {
+    setPreviewSlidingImage(imageFile);
   };
 
   useEffect(() => {
@@ -214,11 +223,15 @@ const ProductView: FC<Props> = ({ product }) => {
     openModal();
   };
 
-  const onClickProduct = () => {
-    console.log("click product");
+  const onClickZoomOut = (index: number) => {
+    setZoomMedia(index);
   };
 
-  useEffect(() => {}, []);
+  const onClickZoomIn = () => {
+    setZoomMedia(-1);
+  };
+
+  console.log("zoomMedia: ", zoomMedia);
 
   const monaAmount =
     !price || price === undefined
@@ -261,8 +274,15 @@ const ProductView: FC<Props> = ({ product }) => {
                       {product.images.map((image, i) => (
                         <div
                           key={image.url}
-                          className={s.imageContainer}
-                          onClick={() => onClickProduct()}
+                          className={cn(
+                            s.imageContainer,
+                            zoomMedia === i ? s.zoomWrapper : ""
+                          )}
+                          onClick={() =>
+                            zoomMedia === i
+                              ? onClickZoomIn()
+                              : onClickZoomOut(i)
+                          }
                         >
                           <Image
                             className={s.img}
@@ -459,7 +479,15 @@ const ProductView: FC<Props> = ({ product }) => {
         </div>
       </Container>
       <BannerBar className={s.homeHeroBar} sourceFile={sourceFile} />
-      <SlidingPanels />
+      <SlidingPanels openPreview={openPreview} />
+      {previewSlidingImage && previewSlidingImage != "" && (
+        <div
+          className={s.slidePreview}
+          onClick={() => setPreviewSlidingImage("")}
+        >
+          <img src={previewSlidingImage} />
+        </div>
+      )}
     </>
   );
 };

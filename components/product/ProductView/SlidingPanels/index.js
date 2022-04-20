@@ -1,6 +1,7 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import styles from "./styles.module.scss";
+import cn from "classnames";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const imageArray = [
@@ -9,7 +10,11 @@ const imageArray = [
   "/images/panels/panel1.png",
 ];
 
-const SlidingPanels = () => {
+const SlidingPanels = ({ openPreview }) => {
+  const onClickZoomOut = (imageFile) => {
+    openPreview(imageFile);
+  };
+
   return (
     <div className={styles.wrapper}>
       <Carousel
@@ -22,7 +27,7 @@ const SlidingPanels = () => {
       >
         {imageArray.map((item, index) => {
           return (
-            <div key={index}>
+            <div key={index} onClick={() => onClickZoomOut(item)}>
               <img src={item} />
             </div>
           );
