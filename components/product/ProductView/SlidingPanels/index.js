@@ -5,9 +5,12 @@ import cn from "classnames";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const imageArray = [
-  "/images/panels/walletsetup.png",
-  "/images/panels/panel1.png",
-  "/images/panels/panel1.png",
+  "/images/panels/Group 21.png",
+  "/images/panels/Group 34.png",
+  "/images/panels/Group 46.png",
+  "/images/panels/Group 58.png",
+  "/images/panels/Group 69.png",
+  "/images/panels/Group 80.png"
 ];
 
 const SlidingPanels = ({ openPreview }) => {
@@ -23,7 +26,7 @@ const SlidingPanels = ({ openPreview }) => {
         showStatus={false}
         showArrows={false}
         autoPlay={true}
-        interval={20000}
+        interval={2000}
       >
         {imageArray.map((item, index) => {
           return (
