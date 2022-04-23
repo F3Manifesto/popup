@@ -64,7 +64,6 @@
     margin-top: -1.5vw;
 
     .leftSide {
-      width: 90%;
       height: 100%;
       margin: auto;
       margin-bottom: 3rem;
@@ -77,7 +76,7 @@
 
       .previewImages {
         position: absolute;
-        left: -30px;
+        left: -55px;
         top: 10px;
         display: flex;
         flex-direction: column;
@@ -128,7 +127,7 @@
         margin: auto;
         margin-top: 0;
         margin-bottom: 50px;
-        width: 400px;
+        // width: 400px;
       }
 
       .productDisplay {
@@ -637,6 +636,7 @@
 
 .productAttrs {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 20px;
   width: 250px;
