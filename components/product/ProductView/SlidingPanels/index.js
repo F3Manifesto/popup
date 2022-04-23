@@ -26,7 +26,7 @@ const SlidingPanels = ({ openPreview }) => {
         showStatus={false}
         showArrows={false}
         autoPlay={true}
-        interval={20000}
+        interval={2000}
       >
         {imageArray.map((item, index) => {
           return (
