@@ -36,7 +36,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
             
           Reach out across any of our social media channels to get more involved with the manifesto, cc0 web3 fashion & the open metaverse. ALL ENGINEERING AND ARCHITECTURE IS FORKED FROM THE DIGITALAX OPEN SOURCE PROTOCOL STACK.
           <br></br><br></br>
-          <a href="https://docs.f3manifesto.xyz/axioms-and-creed/sustainable-metaverse-fashion" target="_blank" rel="noreferrer" text-decoration="underline">Minting Standard</a>
+          <a className={styles.minting} href="https://docs.f3manifesto.xyz/axioms-and-creed/sustainable-metaverse-fashion" target="_blank" rel="noreferrer" >Minting Standard</a><br></br><br></br>
           </div>
 
           <div className={[styles.dFlex, styles.iconsLine].join(' ')}>
