@@ -5,6 +5,7 @@
 
 .footer a {
   color: #ffffff;
+  text-decoration: underline;
 }
 
 .footer a:hover {
@@ -175,6 +176,10 @@ a.footer-text-white {
     height: 30px;
     width: 30px;
     margin-right: 5px;
+  }
+
+  .minting{
+    text-decoration: underline;
   }
 
   .footerWrapper .mediumIcon {

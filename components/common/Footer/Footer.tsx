@@ -34,7 +34,9 @@ const Footer: FC<Props> = ({ className, pages }) => {
         <div className={styles.centerWrapper}>
           <div className={styles.description}>
             
-          Reach out across any of our social media channels to get more involved with the manifesto, cc0 web3 fashion & the open metaverse. ALL ENGINEERING AND ARCHITECTURE IS FORKED FROM THE DIGITALAX OPEN SOURCE PROTOCOL STACK.
+          Reach out across any of our social media channels to get more involved with the manifesto, cc0 web3 fashion & the open metaverse. All ENGINEERING AND ARCHITECTURE IS FORKED FROM THE DIGITALAX OPEN SOURCE PROTOCOL STACK.
+          <br></br><br></br>
+          <a className={styles.minting} href="https://docs.f3manifesto.xyz/marketplaces/pop-up#4c22" target="_blank" rel="noreferrer" >Minting Standard</a><br></br><br></br>
           </div>
 
           <div className={[styles.dFlex, styles.iconsLine].join(' ')}>

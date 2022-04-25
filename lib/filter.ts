@@ -94,6 +94,14 @@ export const filterProducts = (
             )
           : filteredProducts.filter((prod) => prod.rarity === "Common");
         break;
+      case "8":
+        filteredProducts = filteredProducts.filter((prod) =>
+          prod?.tags.find((tag: string) => tag.toLowerCase() === "male")
+        );
+      case "9":
+        filteredProducts = filteredProducts.filter((prod) =>
+          prod?.tags.find((tag: string) => tag.toLowerCase() === "female")
+        );
     }
   }
   return filteredProducts;
