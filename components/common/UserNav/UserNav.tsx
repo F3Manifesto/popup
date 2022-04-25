@@ -90,23 +90,16 @@ const UserNav: FC<Props> = ({ className, mobileClassName }) => {
         {display && (
           <ul className={cn(s.mobileMenu, mobileClassName)} ref={ref}>
             <li>
-              <Link href="https://docs.f3manifesto.xyz/">
+              <Link href="https://market.f3manifesto.xyz/">
                 <a className={s.link} target="_blank">
-                  DOCUMENTATION
+                  Digital Fashion Market
                 </a>
               </Link>
             </li>
             <li>
-              <Link href="https://web3fashionmanifesto.f3manifesto.xyz/manifesto/1/">
+              <Link href="https://web3fashionmanifesto.f3manifesto.xyz">
                 <a className={s.link} target="_blank">
-                  Web3 Fashion manifesto
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="https://mirror.xyz/f3manifesto.eth">
-                <a className={s.link} target="_blank">
-                  Sub-thread weekly
+                  Web3 Fashion Manifesto
                 </a>
               </Link>
             </li>

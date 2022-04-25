@@ -15,14 +15,13 @@ const CryptoSuccessView: FC<Props> = () => {
   return (
     <div className="flex flex-col space-y-3 items-center">
       <h1 className="uppercase text-center text-3xl font-bold">
-        fashion x defi
+        Purchase Success
       </h1>
       <p className="text-center">
-        This Fashion NFT is not an ordinary asset. It unlocks an entire <br />{' '}
-        world of Crypto, DeFi and Web3!
+        Your items are handcrafted. 
       </p>
       <p className="text-center">
-        Your items are handcrafted. Shipping takes approximately 2 <br /> weeks
+        Shipping takes approximately 2 <br /> weeks
         from purchase.
       </p>
       <a

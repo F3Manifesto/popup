@@ -298,29 +298,29 @@ const ProductView: FC<Props> = ({ product }) => {
                     </ProductSlider>
                   </div>
                 </div>
-              </div>
 
-              <div className={s.previewImages}>
-                {product.images.map((image, i) => (
-                  <div
-                    key={image.url}
-                    className={[
-                      s.previewImg,
-                      i == curImgIndex ? s.selected : "",
-                    ].join(" ")}
-                  >
-                    <Image
-                      className={s.img}
-                      src={image.url!}
-                      alt={image.alt || "Product Image"}
-                      width={44}
-                      height={44}
-                      priority={i === 0}
-                      quality="85"
-                      onClick={() => handleOnclick(i)}
-                    />
-                  </div>
-                ))}
+                <div className={s.previewImages}>
+                  {product.images.map((image, i) => (
+                    <div
+                      key={image.url}
+                      className={[
+                        s.previewImg,
+                        i == curImgIndex ? s.selected : "",
+                      ].join(" ")}
+                    >
+                      <Image
+                        className={s.img}
+                        src={image.url!}
+                        alt={image.alt || "Product Image"}
+                        width={44}
+                        height={44}
+                        priority={i === 0}
+                        quality="85"
+                        onClick={() => handleOnclick(i)}
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className={s.productAttrs}>

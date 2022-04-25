@@ -9,7 +9,7 @@ import getAllProducts from "@framework/product/get-all-products";
 
 import { Layout, ProductTiles } from "@components/common";
 import { Container, GridContainer } from "@components/ui";
-import { ProductItem } from "@components/product";
+import { ProductItem } from "@components/product"; 
 import ProductTopBanner from "@components/common/ProductTopBanner";
 
 import { filterProducts } from "@lib/filter";
