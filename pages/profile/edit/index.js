@@ -126,6 +126,10 @@ const EditProfile = ({ history }) => {
     <div className={styles.container}>
       <div className={styles.cardWrapper}>
         <InfoCard mainColor={"#4E4AFF"} bodyClass={styles.padding5}>
+          <h1>
+            This is your global web3 fashion profile, interoperable across all
+            DIGITALAX protocol stack integrated realms
+          </h1>
           <div className={styles.profileWrapper}>
             <div className={styles.avatarWrapper}>
               <img
