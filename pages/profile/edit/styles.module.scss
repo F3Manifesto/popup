@@ -2,6 +2,7 @@
 
 $yellow: #ffef62;
 $blue: #4E4AFF;
+$fontFamily: 'Lemon Milk';
 
 .container {
   margin: auto;
@@ -114,7 +115,7 @@ $blue: #4E4AFF;
     padding-left: 12px;
 
     @include sm-width {
-      width: 260px;
+      // width: 260px;
     }
   }
 }
@@ -205,7 +206,7 @@ $blue: #4E4AFF;
   height: 41px;
   font-size: 0.9375rem;
   color: $blue;
-  margin-left: -3rem;
+  margin-right: 10px;
   font-family: Bebas Neue;
   background-color: $yellow;
   white-space: nowrap;
