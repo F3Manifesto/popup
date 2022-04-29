@@ -76,14 +76,23 @@
 
       .previewImages {
         position: absolute;
-        left: -55px;
+        left: -62px;
         top: 10px;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        padding-top: 10px;
         z-index: 30;
         // position: relative;
+        width: 65px;
         margin-top: 0;
         max-width: 600px;
+        height: 220px;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
       
         .previewImg {
           margin-bottom: 5px;
@@ -91,8 +100,10 @@
           box-sizing: border-box;
           border-radius: 9px;
           height: 48px;
+          min-height: 48px;
           overflow: hidden;
           transition: 0.3s all;
+          margin-right: 10px;
 
           img {
             object-fit: cover;
@@ -118,8 +129,40 @@
         }
 
         @include sm-width {
-          left: -70px;
+          // width: 120px;
+          // display: flex;
+          // align-items: flex-start;
+          // // padding-right: 5px;
+          // flex-wrap: wrap-reverse;
+          // left: -120px;
+          height: 385px;
+          // overflow: visible;
         }
+      
+        @include md-width {
+          width: 120px;
+          display: flex;
+          align-items: flex-start;
+          // padding-right: 5px;
+          flex-wrap: wrap-reverse;
+          left: -120px;
+          height: 385px;
+          overflow: visible;
+          height: 485px;
+        }
+      
+        @include lg-width {
+          height: 335px;
+        }
+      
+        @include xl-width {
+          height: 385px;
+        }
+      
+        @include xxl-width {
+          height: 490px;
+        }
+      
       }
 
     
