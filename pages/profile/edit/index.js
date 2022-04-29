@@ -49,7 +49,7 @@ const EditProfile = ({ history }) => {
           }
           currentUser.avatar = url;
           console.log("currentUser: ", currentUser);
-          localStorage.setItem("user", JSON.stringify(currentUser));
+          localStorage.setItem("F3M_POPUP_USER", JSON.stringify(currentUser));
           setCurrentUser(currentUser);
           dispatch(setUser(currentUser));
         }
@@ -65,7 +65,7 @@ const EditProfile = ({ history }) => {
       setisLoading(false);
       if (data) {
         console.log("data: ", JSON.stringify(currentUser));
-        localStorage.setItem("user", JSON.stringify(data));
+        localStorage.setItem("F3M_POPUP_USER", JSON.stringify(data));
         dispatch(setUser(data));
         toast.success("Your profile updated successfully.");
       } else {

@@ -34,8 +34,11 @@ const SignUpView: FC<Props> = () => {
       if (data) {
         const { returnData, secret } = data;
         dispatch(setUser(returnData));
-        window.localStorage.setItem("user", JSON.stringify(returnData));
-        window.localStorage.setItem("TOKEN", secret);
+        window.localStorage.setItem(
+          "F3M_POPUP_USER",
+          JSON.stringify(returnData)
+        );
+        window.localStorage.setItem("F3M_POPUP_TOKEN", secret);
       }
     } catch (e) {
       console.log({ e });

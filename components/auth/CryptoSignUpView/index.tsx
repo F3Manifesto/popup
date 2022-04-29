@@ -63,9 +63,9 @@ const CryptoSignUpView: FC<Props> = () => {
           dispatch(setWallet(option));
           dispatch(setAccount(res.account));
           dispatch(setChainId(res.chainId));
-          window.localStorage.setItem("ACCOUNT", res.account);
-          window.localStorage.setItem("CHAIN_ID", res.chainId);
-          window.localStorage.setItem("WALLET", option.toString());
+          window.localStorage.setItem("F3M_POPUP_ACCOUNT", res.account);
+          window.localStorage.setItem("F3M_POPUP_CHAIN_ID", res.chainId);
+          window.localStorage.setItem("F3M_POPUP_WALLET", option.toString());
         }
         setModalView("SIGNUP_VIEW");
       } catch (error) {

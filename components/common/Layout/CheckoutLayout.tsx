@@ -43,21 +43,31 @@ const CheckoutLayout: FC<Props> = ({
   const { dispatch, wallet } = useMain();
 
   useEffect(() => {
-    if (window.localStorage.getItem("user")) {
-      dispatch(setUser(JSON.parse(window.localStorage.getItem("user") || "")));
-    }
-    if (window.localStorage.getItem("ACCOUNT")) {
-      dispatch(setAccount(window.localStorage.getItem("ACCOUNT") || ""));
-    }
-    if (window.localStorage.getItem("CHAIN_ID")) {
-      dispatch(setChainId(window.localStorage.getItem("CHAIN_ID") || ""));
-    }
-    if (window.localStorage.getItem("CRYPTO_OPTION")) {
-      dispatch(setCrypto(window.localStorage.getItem("CRYPTO_OPTION") || ""));
-    }
-    if (window.localStorage.getItem("WALLET")) {
+    if (window.localStorage.getItem("F3M_POPUP_USER")) {
       dispatch(
-        setWallet(parseInt(window.localStorage.getItem("WALLET") || "0"))
+        setUser(JSON.parse(window.localStorage.getItem("F3M_POPUP_USER") || ""))
+      );
+    }
+    if (window.localStorage.getItem("F3M_POPUP_ACCOUNT")) {
+      dispatch(
+        setAccount(window.localStorage.getItem("F3M_POPUP_ACCOUNT") || "")
+      );
+    }
+    if (window.localStorage.getItem("F3M_POPUP_CHAIN_ID")) {
+      dispatch(
+        setChainId(window.localStorage.getItem("F3M_POPUP_CHAIN_ID") || "")
+      );
+    }
+    if (window.localStorage.getItem("F3M_POPUP_CRYPTO_OPTION")) {
+      dispatch(
+        setCrypto(window.localStorage.getItem("F3M_POPUP_CRYPTO_OPTION") || "")
+      );
+    }
+    if (window.localStorage.getItem("F3M_POPUP_WALLET")) {
+      dispatch(
+        setWallet(
+          parseInt(window.localStorage.getItem("F3M_POPUP_WALLET") || "0")
+        )
       );
     }
   }, []);
