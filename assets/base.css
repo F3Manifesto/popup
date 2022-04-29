@@ -9,7 +9,7 @@
   --text-primary: #000000;
   --text-secondary: white;
 
-  --hover: rgba(0, 0, 0, 0.075);
+  --hover: rgba(0, 0, 0, 0.075) ;
   --hover-1: rgba(0, 0, 0, 0.15);
   --hover-2: rgba(0, 0, 0, 0.25);
   --cyan: #22b8cf;
