@@ -1,13 +1,13 @@
-import axios from 'axios'
-import qs from 'qs'
+import axios from "axios";
+import qs from "qs";
 
-const DEFAULT_OPTIONS = { withCredentials: true }
+const DEFAULT_OPTIONS = { withCredentials: true };
 
 axios.defaults.baseURL =
-  'https://7kuwlltzmc.execute-api.eu-central-1.amazonaws.com/latest'
-axios.defaults.headers.post['Content-Type'] = 'application/json'
+  "https://7kuwlltzmc.execute-api.eu-central-1.amazonaws.com/latest";
+axios.defaults.headers.post["Content-Type"] = "application/json";
 
-const getAuthToken = () => localStorage.getItem('TOKEN')
+const getAuthToken = () => localStorage.getItem("F3M_POPUP_TOKEN");
 
 function executeRequest(
   method,
@@ -27,17 +27,17 @@ function executeRequest(
     headers: {
       Authorization: getAuthToken(),
     },
-  }
+  };
 
   return new Promise((resolve, reject) => {
     axios(params)
       .then((response) => {
-        resolve(response.data)
+        resolve(response.data);
       })
       .catch((error) => {
-        reject(error)
-      })
-  })
+        reject(error);
+      });
+  });
 }
 
 /**
@@ -47,9 +47,9 @@ function executeRequest(
  * @param {Object} options
  * @returns {Promise<any>}
  */
- export function get(url, data, options) {
-  const query = qs.stringify(data, { encode: true, arrayFormat: 'brackets' })
-  return executeRequest('get', `${url}?${query || ''}`, null, options)
+export function get(url, data, options) {
+  const query = qs.stringify(data, { encode: true, arrayFormat: "brackets" });
+  return executeRequest("get", `${url}?${query || ""}`, null, options);
 }
 
 /**
@@ -61,7 +61,7 @@ function executeRequest(
  */
 export function post(url, data, options) {
   // if need upload file use this post
-  return executeRequest('post', `${url}`, data, options)
+  return executeRequest("post", `${url}`, data, options);
 }
 
 /**
@@ -72,7 +72,7 @@ export function post(url, data, options) {
  * @returns {Promise<any>}
  */
 export function patch(url, data, options) {
-  return executeRequest('patch', `${url}`, data, options)
+  return executeRequest("patch", `${url}`, data, options);
 }
 
 /**
@@ -83,7 +83,7 @@ export function patch(url, data, options) {
  * @returns {Promise<any>}
  */
 export function put(url, data, options) {
-  return executeRequest('put', `${url}`, data, options)
+  return executeRequest("put", `${url}`, data, options);
 }
 
 /**
@@ -94,6 +94,5 @@ export function put(url, data, options) {
  * @returns {Promise<any>}
  */
 export function del(url, data, options) {
-  return executeRequest('delete', `${url}`, data, options)
+  return executeRequest("delete", `${url}`, data, options);
 }
-

@@ -26,7 +26,7 @@ const CryptoOptionsView: FC<Props> = () => {
   const onCryptoOptionSelect = (option: string) => {
     if (!loading) {
       dispatch(setCrypto(option));
-      window.localStorage.setItem("CRYPTO_OPTION", option.toString());
+      window.localStorage.setItem("F3M_POPUP_CRYPTO_OPTION", option.toString());
     }
   };
 

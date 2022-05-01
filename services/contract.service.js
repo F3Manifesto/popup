@@ -3,7 +3,9 @@ import { setWeb3Provider } from "./web3-provider.service";
 
 const getContract = async (address, abi) => {
   if (!window.web3.eth) {
-    const wallet = parseInt(window.localStorage.getItem("WALLET") || "0");
+    const wallet = parseInt(
+      window.localStorage.getItem("F3M_POPUP_WALLET") || "0"
+    );
     await setWeb3Provider(wallet);
   }
   const contract = new window.web3.eth.Contract(abi, address);

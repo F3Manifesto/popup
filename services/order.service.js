@@ -13,6 +13,10 @@ const SECRET_ACCESS_KEY = process.env.NEXT_SHOPIFY_SECRET_ACCESS_KEY;
 
 const API_URL = `https://${ACCESS_TOKEN}:${SECRET_ACCESS_KEY}@${STORE_DOMAIN}/admin/api/2022-04`;
 
+const getGasPrice = async () => {
+  return await window.web3.eth.getGasPrice();
+};
+
 export const createDraftOrder = async (
   email,
   items,
@@ -119,7 +123,7 @@ export const approveToken = async ({ account, crypto, cryptoPrice }) => {
     const tokenContract = await getTokenContract(crypto);
     return tokenContract.methods
       .approve(dripMarketplaceAddress, Units.convert(20000000000, "eth", "wei"))
-      .send({ from: account });
+      .send({ from: account, gasPrice: await getGasPrice() });
   } catch (err) {
     console.log(err);
     throw err;
@@ -149,6 +153,7 @@ export const purchaseOrder = async ({
       .send({
         from: account,
         value: 0,
+        gasPrice: await getGasPrice(),
       });
 
     const promise = new Promise((resolve, reject) => {
