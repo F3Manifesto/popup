@@ -15,13 +15,10 @@ const PurchaseSuccessView: FC<Props> = () => {
   return (
     <div className="flex flex-col space-y-3 items-center">
       <h1 className="uppercase text-center text-3xl font-bold">
-        you just got web3 fashioned
+        Purchase Success!
       </h1>
       <p className="text-center">
-        Congratulations! Welcome to the Revolution. Your Decentraland in-game
-        wearable and unique PFP game character will be airdropped to your wallet
-        in a few hours! Also, you will receive an email shortly with
-        instructions for how to wear your fashion digitally!
+        You're items are handcrafted and will arrive in approximately ~2 weeks.
       </p>
       <p className="text-center">
         In the meantime you can stake your fashion for $MONA yield{' '}
