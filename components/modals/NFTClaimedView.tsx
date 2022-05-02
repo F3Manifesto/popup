@@ -8,8 +8,7 @@ const NFTClaimedView: FC<Props> = () => {
       <h1 className="text-center text-3xl font-newyork text-yellow font-bold"> NFT Claimed! </h1>
       <p className="text-center font-lemonmilk">
         {' '}
-        It will arrive in your wallet soon and you can view it on your profile
-        page!
+        You're NFT will arrive in your wallet soon.
         <br />
         <br />
         This Fashion NFT is not an ordinary asset. It unlocks an entire world of
