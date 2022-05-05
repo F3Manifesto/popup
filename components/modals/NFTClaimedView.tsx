@@ -11,8 +11,7 @@ const NFTClaimedView: FC<Props> = () => {
         You're NFT will arrive in your wallet soon.
         <br />
         <br />
-        This Fashion NFT is not an ordinary asset. It unlocks an entire world of
-        Crypto, DeFi and Web3!
+        Shipping takes between 1-2 weeks.
       </p>
       <a href="" className="text-2xl font-bold underline">
         Start Using Your NFT Here!{' '}
