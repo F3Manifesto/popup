@@ -8,7 +8,7 @@ const NFTClaimedView: FC<Props> = () => {
       <h1 className="text-center text-3xl font-newyork text-yellow font-bold"> NFT Claimed! </h1>
       <p className="text-center font-lemonmilk">
         {' '}
-        You're NFT will arrive in your wallet soon!
+        You're NFT will arrive in your wallet soon.
         <br />
         <br />
         Shipping takes between 1-2 weeks.
