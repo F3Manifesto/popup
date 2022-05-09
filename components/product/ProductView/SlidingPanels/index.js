@@ -10,7 +10,7 @@ const imageArray = [
   "/images/panels/Group 46.png",
   "/images/panels/Group 58.png",
   "/images/panels/Group 69.png",
-  "/images/panels/Group 80.png"
+  "/images/panels/Group 80.png",
 ];
 
 const SlidingPanels = ({ openPreview }) => {
@@ -26,6 +26,7 @@ const SlidingPanels = ({ openPreview }) => {
         showStatus={false}
         showArrows={false}
         autoPlay={true}
+        stopOnHover={false}
         interval={2000}
       >
         {imageArray.map((item, index) => {

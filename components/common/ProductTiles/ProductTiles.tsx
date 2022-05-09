@@ -1,5 +1,7 @@
 import { FC, useState, useEffect } from "react";
 import Image from "next/image";
+import ReactFreezeframe from "react-freezeframe";
+import Gif from "./Gif";
 import type { Product } from "@commerce/types";
 import styles from "./ProductTiles.module.scss";
 
@@ -49,6 +51,12 @@ const ProductTiles: FC<Props> = ({ products }) => {
   useEffect(() => {
     const shuffled = shuffleArray(products || []);
     setShuffledArray(shuffled);
+    // if (typeof window !== "undefined") {
+    //   const ff = new Freezeframe({
+    //     trigger: false,
+    //   });
+    //   ff.stop();
+    // }
   }, []);
 
   useEffect(() => {
@@ -71,14 +79,19 @@ const ProductTiles: FC<Props> = ({ products }) => {
               className={styles.tileWrapper}
             >
               {product?.images && (
-                <Image
-                  alt={product.name || "Product Image"}
-                  className={styles.tileImage}
-                  src={product.images[0].url || placeholderImg}
-                  height={540}
-                  width={540}
-                  quality="85"
-                  layout="responsive"
+                // <img
+                //   alt={product.name || "Product Image"}
+                //   className={`${styles.tileImage}`}
+                //   src={`${product.images[0].url || placeholderImg}`}
+                //   // height={540}
+                //   // width={540}
+                //   // quality="85"
+                //   // layout="responsive"
+                // />
+                <Gif
+                  src={`${product.images[0].url || placeholderImg}`}
+                  frame={0}
+                  className={`${styles.tileImage}`}
                 />
               )}
             </a>
