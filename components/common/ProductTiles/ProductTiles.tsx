@@ -79,20 +79,32 @@ const ProductTiles: FC<Props> = ({ products }) => {
               className={styles.tileWrapper}
             >
               {product?.images && (
-                // <img
-                //   alt={product.name || "Product Image"}
-                //   className={`${styles.tileImage}`}
-                //   src={`${product.images[0].url || placeholderImg}`}
-                //   // height={540}
-                //   // width={540}
-                //   // quality="85"
-                //   // layout="responsive"
+                // <div
+                //   className={styles.tileImage}
+                //   style={{
+                //     backgroundImage: `url(${
+                //       product.images[0].url || placeholderImg
+                //     })`,
+                //     width: `5vw`,
+                //     height: "5vw",
+                //     backgroundSize: "100%",
+                //     // backgroundPosition: `-100px 0px`,
+                //   }}
                 // />
-                <Gif
-                  src={`${product.images[0].url || placeholderImg}`}
-                  frame={parseInt((Math.random() * 100).toFixed()) % 8}
+                <Image
+                  alt={product.name || "Product Image"}
                   className={`${styles.tileImage}`}
+                  src={`${product.images[0].url || placeholderImg}`}
+                  height={100}
+                  width={100}
+                  quality="30"
+                  layout="responsive"
                 />
+                // <Gif
+                //   src={`${product.images[0].url || placeholderImg}`}
+                //   frame={0}
+                //   className={`${styles.tileImage}`}
+                // />
               )}
             </a>
             // </Link>
