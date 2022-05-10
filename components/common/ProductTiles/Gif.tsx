@@ -58,43 +58,43 @@ const Gif = ({
    */
   // the gif will be stored as state data as returned by parseGifFrame
   // this is the entirety of the gif decoding that is done
-  // const [framesData, setFramesData] = useState("");
+  const [framesData, setFramesData] = useState("");
   const ref = useRef<any>();
   useEffect(() => {
-    gifFrames({ url: src, frames: "all", outputType: "canvas" }).then(
-      (gifFramesData: any) => {
-        const frameData = gifFramesData.find(
-          (item: any, index: number) => index == frame
-        );
-        const frameImage = frameData?.getImage();
-        ref.current.appendChild(frameImage);
-        // if (frameImage) {
-        //   console.log({ frameImage });
-        //   setFramesData(frameImage.toDataURL());
-        // }
-      }
-    );
+    gifFrames({
+      url: src,
+      frames: frame,
+      outputType: "canvas",
+      cumulative: true,
+    }).then((gifFramesData: any) => {
+      if (gifFramesData?.length)
+        setFramesData(gifFramesData[0].getImage().toDataURL());
+      // if (frameImage) {
+      //   console.log({ frameImage });
+      //   setFramesData(frameImage.toDataURL());
+      // }
+    });
   }, [src]);
 
   // if (framesData) {
   return (
     <span ref={ref} className={styles.canvasWrapper}>
-      {/* {framesData?.length ? (
-          <Image
-            src={framesData}
-            height={100}
-            width={100}
-            layout="responsive"
-            quality={10}
-            // style={{
-            //   ...imgStyle,
-            //   top: 0,
-            //   left: 0,
-            // }}
-          />
-        ) : (
-          <></>
-        )} */}
+      {framesData?.length ? (
+        <Image
+          src={framesData}
+          height={100}
+          width={100}
+          layout="responsive"
+          quality={10}
+          // style={{
+          //   ...imgStyle,
+          //   top: 0,
+          //   left: 0,
+          // }}
+        />
+      ) : (
+        <></>
+      )}
     </span>
   );
   // }

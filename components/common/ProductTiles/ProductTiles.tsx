@@ -1,6 +1,7 @@
 import { FC, useState, useEffect } from "react";
 import Image from "next/image";
-import ReactFreezeframe from "react-freezeframe";
+import gifFrames from "gif-frames";
+
 import Gif from "./Gif";
 import type { Product } from "@commerce/types";
 import styles from "./ProductTiles.module.scss";
@@ -52,20 +53,7 @@ const ProductTiles: FC<Props> = ({ products }) => {
   useEffect(() => {
     const shuffled = shuffleArray(products || []);
     setShuffledArray(shuffled);
-    // if (typeof window !== "undefined") {
-    //   const ff = new Freezeframe({
-    //     trigger: false,
-    //   });
-    //   ff.stop();
-    // }
   }, []);
-
-  // useEffect(() => {
-  //   screenWidth > 707 ? setIsMobile(false) : setIsMobile(true);
-  // }, [screenWidth]);
-
-  // console.log("shuffledArray: ", shuffledArray);
-  // console.log("isMobile: ", isMobile);
 
   return (
     <div className={styles.wrapper}>
