@@ -1,5 +1,7 @@
 import { FC, useState, useEffect } from "react";
 import Image from "next/image";
+import ReactFreezeframe from "react-freezeframe";
+import Gif from "./Gif";
 import type { Product } from "@commerce/types";
 import styles from "./ProductTiles.module.scss";
 
@@ -41,7 +43,8 @@ function useWindowDimensions() {
 
 const ProductTiles: FC<Props> = ({ products }) => {
   const screenWidth = useWindowDimensions().width;
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = screenWidth <= 707;
+  // const [isMobile, setIsMobile] = useState(false);
   const [shuffledArray, setShuffledArray] = useState([]);
   // let shuffledArray = []
   const placeholderImg = "/product-img-placeholder.svg";
@@ -49,11 +52,17 @@ const ProductTiles: FC<Props> = ({ products }) => {
   useEffect(() => {
     const shuffled = shuffleArray(products || []);
     setShuffledArray(shuffled);
+    // if (typeof window !== "undefined") {
+    //   const ff = new Freezeframe({
+    //     trigger: false,
+    //   });
+    //   ff.stop();
+    // }
   }, []);
 
-  useEffect(() => {
-    screenWidth > 707 ? setIsMobile(false) : setIsMobile(true);
-  }, [screenWidth]);
+  // useEffect(() => {
+  //   screenWidth > 707 ? setIsMobile(false) : setIsMobile(true);
+  // }, [screenWidth]);
 
   // console.log("shuffledArray: ", shuffledArray);
   // console.log("isMobile: ", isMobile);
@@ -71,14 +80,31 @@ const ProductTiles: FC<Props> = ({ products }) => {
               className={styles.tileWrapper}
             >
               {product?.images && (
-                <Image
-                  alt={product.name || "Product Image"}
-                  className={styles.tileImage}
-                  src={product.images[0].url || placeholderImg}
-                  height={540}
-                  width={540}
-                  quality="85"
-                  layout="responsive"
+                // <div
+                //   className={styles.tileImage}
+                //   style={{
+                //     backgroundImage: `url(${
+                //       product.images[0].url || placeholderImg
+                //     })`,
+                //     width: `5vw`,
+                //     height: "5vw",
+                //     backgroundSize: "100%",
+                //     // backgroundPosition: `-100px 0px`,
+                //   }}
+                // />
+                // <Image
+                //   alt={product.name || "Product Image"}
+                //   className={`${styles.tileImage}`}
+                //   src={`${product.images[0].url || placeholderImg}`}
+                //   height={100}
+                //   width={100}
+                //   quality="30"
+                //   layout="responsive"
+                // />
+                <Gif
+                  src={`${product.images[0].url || placeholderImg}`}
+                  frame={parseInt((Math.random() * 100).toFixed(2)) % 8}
+                  className={`${styles.tileImage}`}
                 />
               )}
             </a>
