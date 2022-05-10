@@ -103,7 +103,7 @@ const ProductTiles: FC<Props> = ({ products }) => {
                 // />
                 <Gif
                   src={`${product.images[0].url || placeholderImg}`}
-                  frame={parseInt((Math.random() * 100).toFixed(2)) * 8}
+                  frame={parseInt((Math.random() * 100).toFixed(2)) % 8}
                   className={`${styles.tileImage}`}
                 />
               )}
