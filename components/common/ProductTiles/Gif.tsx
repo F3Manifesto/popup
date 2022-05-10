@@ -7,7 +7,9 @@
 
 // module dependencies: npm packages
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import PropTypes from "prop-types";
+import styles from "./ProductTiles.module.scss";
 import gifFrames from "gif-frames";
 
 /**
@@ -27,7 +29,7 @@ const parseGifFrame = ({
   getImage: any;
   frameIndex: any;
 }) => ({
-  dataURL: getImage().toDataURL(),
+  dataURL: getImage()?.toDataURL(),
   key: frameIndex,
 });
 
@@ -56,33 +58,46 @@ const Gif = ({
    */
   // the gif will be stored as state data as returned by parseGifFrame
   // this is the entirety of the gif decoding that is done
-  const [framesData, setFramesData] = useState([]);
+  // const [framesData, setFramesData] = useState("");
+  const ref = useRef<any>();
   useEffect(() => {
     gifFrames({ url: src, frames: "all", outputType: "canvas" }).then(
       (gifFramesData: any) => {
-        setFramesData(gifFramesData.map(parseGifFrame));
+        const frameData = gifFramesData.find(
+          (item: any, index: number) => index == frame
+        );
+        const frameImage = frameData?.getImage();
+        ref.current.appendChild(frameImage);
+        // if (frameImage) {
+        //   console.log({ frameImage });
+        //   setFramesData(frameImage.toDataURL());
+        // }
       }
     );
   }, [src]);
 
-  if (framesData) {
-    return (
-      <span {...props}>
-        {framesData.map(({ dataURL, key }) => (
-          <img
-            src={dataURL}
-            key={key}
-            style={{
-              ...imgStyle,
-              top: 0,
-              left: 0,
-              display: key === frame ? "block" : "none",
-            }}
+  // if (framesData) {
+  return (
+    <span ref={ref} className={styles.canvasWrapper}>
+      {/* {framesData?.length ? (
+          <Image
+            src={framesData}
+            height={100}
+            width={100}
+            layout="responsive"
+            quality={10}
+            // style={{
+            //   ...imgStyle,
+            //   top: 0,
+            //   left: 0,
+            // }}
           />
-        ))}
-      </span>
-    );
-  }
+        ) : (
+          <></>
+        )} */}
+    </span>
+  );
+  // }
   // if no gif data, use failFrame
   if (failFrame) {
     return <img src={failFrame} alt="failFrame" />;
