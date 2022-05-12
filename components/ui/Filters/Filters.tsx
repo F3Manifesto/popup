@@ -59,19 +59,18 @@ const Filters: FC<Props> = ({ filter, filterChange, sortByChange }) => {
           <div
             className={styles.sortInput}
             onClick={() => {
-              !showFilters && setShowFilters(true);
+              setShowFilters(!showFilters);
             }}
           >
-            {!showFilters && (
-              <div className={styles.currentItem}>
-                <img
-                  className={styles.arrowBottomImg}
-                  src="/images/arrow-bottom.svg"
-                  alt="arrow-bottom"
-                />
-                <span>{filterItems[currentSelectedIndex]}</span>
-              </div>
-            )}
+            <div className={styles.currentItem}>
+              <img
+                className={styles.arrowBottomImg}
+                src="/images/arrow-bottom.svg"
+                alt="arrow-bottom"
+              />
+              <span>{filterItems[currentSelectedIndex]}</span>
+            </div>
+
             <ul className={showFilters ? styles.show : styles.hidden}>
               {filterItems.map((item, index) => {
                 return (
