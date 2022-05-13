@@ -77,9 +77,26 @@
     line-height: 54px;
     color: var(--blue);
 
+    display: flex;
+    flex-direction: column;
+
+    .explore {
+      margin-top: 20px;
+      margin-right: 0;
+    }
+
     @include lg-width {
       font-size: 1.875vw;
+      flex-direction: row;
+
+      .explore {
+        margin-top: 0px;
+        margin-right: 2vw;
+        
+      }
     }
+
+   
   }
 
   .filter {
