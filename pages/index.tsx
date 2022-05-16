@@ -146,7 +146,7 @@ export default function Home({
                 className={styles.youtubeFrame}
                 width="560"
                 height="315"
-                src="https://www.youtube.com/watch?v=AWVYBE8r0Bg"
+                src="https://www.youtube.com/embed/AWVYBE8r0Bg?autoplay=1&mute=1&controls=0&loop=1"
               ></iframe>
               <img src="/images/curves1.png" className={styles.curves1} />
               <img src="/images/curves2.png" className={styles.curves2} />
