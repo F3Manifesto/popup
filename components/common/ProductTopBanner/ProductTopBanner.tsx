@@ -51,12 +51,12 @@ const ProductTopBanner: FC<Props> = ({
     "/images/banners/bridgeshot.jpg",
     "/images/banners/digiob.jpeg",
     "/images/banners/modelfinal1.gif",
-    "/images/banners/skagefirl.gif",
+    "/images/banners/skategirl.gif",
     "/images/banners/models2.png",
     "/images/banners/whatisweb3.gif",
   ];
 
-  const randomOrder = shuffle(banners);
+  const randomOrder = banners;
 
   return (
     <div className={styles.wrapper}>
@@ -90,6 +90,7 @@ const ProductTopBanner: FC<Props> = ({
               {randomOrder.map((item) => {
                 return (
                   <img
+                    key={item}
                     src={item}
                     style={{
                       display: "block",
