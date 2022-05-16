@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 import { TextSlider } from "..";
 import HomeTitle from "@components/ui/HomeTitle";
 import { HeroBar } from "@components/ui";
@@ -48,12 +49,12 @@ const ProductTopBanner: FC<Props> = ({
   };
 
   const banners = [
-    // "/images/banners/bridgeshot.jpg",
+    "/images/banners/bridgeshot.jpg",
     "/images/banners/digiob.jpeg",
-    // "/images/banners/modelfinal1.gif",
-    // "/images/banners/skategirl.gif",
+    "/images/banners/modelfinal1.gif",
+    "/images/banners/skategirl.gif",
     "/images/banners/models2.png",
-    // "/images/banners/whatisweb3.gif",
+    "/images/banners/whatisweb3.gif",
   ];
 
   const randomOrder = banners;
@@ -73,7 +74,17 @@ const ProductTopBanner: FC<Props> = ({
         {isHomePage && (
           <div className={styles.carouselWrapper}>
             <Carousel
-              ssr
+              infiniteLoop={true}
+              showThumbs={false}
+              showIndicators={false}
+              showStatus={false}
+              showArrows={false}
+              autoPlay={true}
+              stopOnHover={false}
+              interval={10000}
+            >
+              {/* <Carousel
+              // ssr
               autoPlay
               autoPlaySpeed={5000}
               arrows={false}
@@ -81,12 +92,12 @@ const ProductTopBanner: FC<Props> = ({
               renderButtonGroupOutside={false}
               renderDotsOutside={false}
               slidesToSlide={1}
-              deviceType={"desktop"}
+              // deviceType={"desktop"}
               itemClass={styles.bannerItem}
               responsive={responsive}
               draggable={false}
               swipeable={false}
-            >
+            > */}
               {randomOrder.map((item) => {
                 return (
                   <img
