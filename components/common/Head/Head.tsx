@@ -70,6 +70,18 @@ const Head: FC = () => {
           as="font"
           crossOrigin=""
         />
+        <link
+          rel="preload"
+          href="/fonts/Skateparx Filled Demo.otf"
+          as="font"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/Pixel_Berry_08_84_Ltd.Edition.TTF"
+          as="font"
+          crossOrigin=""
+        />
         <script src="/js/TweenMax.min.js"></script>
       </NextHead>
     </>

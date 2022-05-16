@@ -1,0 +1,207 @@
+@import '../assets/grid.scss';
+
+.topSection {
+  position: relative;
+  height: fit-content;
+
+  .windowWrapper  {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: calc(100% - 20px);
+    left: 19.9vw;
+    top: 7.8vw;
+    border: 1px solid #4E4AFF;
+
+    .titleBar {
+      height: 30px;
+      border-bottom: 0.05vw solid #4E4AFF;
+      display: flex;
+      justify-content: flex-end;
+
+      a {
+        padding: 8px;
+        font-family: 'Pixel Berry 08/84 Ltd.Edition';
+        font-size: 14px;
+        line-height: 140%;
+        display: flex;
+        align-items: center;
+        
+        color: #4E4AFF;
+        cursor: pointer;
+      }
+    }
+
+    .text1 {
+      width: 100%;
+      padding: 10px;
+      
+      font-family: 'Pixel Berry 08/84 Ltd.Edition';
+      font-size: 14px;
+      line-height: 140%;
+      display: flex;
+      align-items: center;
+      
+      color: #4E4AFF;
+    }
+
+    .text2 {
+      width: 100%;
+      padding: 10px;
+      font-family: 'Pixel Berry 08/84 Ltd.Edition';
+      font-size: 16px;
+      line-height: 140%;
+      display: flex;
+      align-items: center;
+      
+      color: #4E4AFF;
+    }
+  }
+
+  video {
+    width: 100vw;
+    height: 80vw;
+    margin-top: 20px;
+    object-fit: cover;
+  }
+
+  @include lg-width {
+    height: 52vw;
+
+    .windowWrapper {
+      position: absolute;
+      width: 31vw;
+      height: 29.42vw;
+      left: 19.9vw;
+      top: 7.8vw;
+      border: 0.05vw solid #4E4AFF;
+  
+      .titleBar {
+        height: 2.8vw;
+        border-bottom: 0.05vw solid #4E4AFF;
+        display: flex;
+        justify-content: flex-end;
+  
+        a {
+          padding: 1vw;
+          font-family: 'Pixel Berry 08/84 Ltd.Edition';
+          font-size: 1.04vw;
+          line-height: 140%;
+          display: flex;
+          align-items: center;
+          
+          color: #4E4AFF;
+          cursor: pointer;
+        }
+      }
+  
+      .text1 {
+        margin-top: 3.12vw;
+        margin-left: 7.08vw;
+  
+        font-family: 'Pixel Berry 08/84 Ltd.Edition';
+        font-size: 1.04vw;
+        line-height: 140%;
+        display: flex;
+        align-items: center;
+        
+        color: #4E4AFF;
+      }
+  
+      .text2 {
+        margin-top: 4.68vw;
+        margin-left: 6.4vw;
+  
+        width: 18.07vw;
+        font-family: 'Pixel Berry 08/84 Ltd.Edition';
+        font-size: 1.56vw;
+        line-height: 140%;
+        display: flex;
+        align-items: center;
+        
+        color: #4E4AFF;
+      }
+  
+    }
+  
+    video {
+      position: absolute;
+      width: 39.01vw;
+      height: 28.07vw;
+      left: 61vw;
+      top: 17.18vw;
+      object-fit: cover;
+    }
+  }
+}
+
+.skateSection {
+  position: relative;
+  background-color: #FF6A31;
+  height: 52.76vw;
+
+  .youtubeFrame {
+    position: absolute;
+    width: 50.88vw;
+    height: 31.92vw;
+    left: 37.34vw;
+    top: 5.88vw;
+  }
+
+  .curves1 {
+    position: absolute;
+    width: 23.54vw;
+    height: 21.24vw;
+    left: 20.46vw;
+    top: 26.85vw;
+    pointer-events: none;
+  }
+
+  .curves2 {
+    position: absolute;
+    width: 12.09vw;
+    height: 8.65vw;
+    left: 85.03vw;
+    top: 2.49vw;
+    pointer-events: none;
+  }
+
+  .text1 {
+    position: absolute;
+    width: 26.61vw;
+    left: 6.61vw;
+    top: 6.25vw;
+
+    font-family: "Skateparx Filled";
+    font-size: 5.2vw;
+    line-height: 115%;
+    
+    color: #000000;
+    -webkit-text-stroke: 0.15vw #FFFFFF;
+
+    div {
+      color: transparent;
+    }
+  }
+
+  .text2 {
+    position: absolute;
+    width: 21.92vw;
+    left: 73.38vw;
+    top: 39.94vw;
+    font-family: "Skateparx Filled";
+    font-size: 5.2vw;
+    line-height: 115%;
+    display: flex;
+    align-items: center;
+    
+    color: #000000;
+    -webkit-text-stroke: 0.15vw #FFFFFF;
+  }
+}
+
+.vintageSection {
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
