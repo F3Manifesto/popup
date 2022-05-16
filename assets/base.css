@@ -545,6 +545,16 @@ a {
   src: url("/fonts/Akira Expanded Demo.otf");
 }
 
+@font-face {
+  font-family: 'Skateparx Filled';
+  src: url("/fonts/Skateparx Filled Demo.otf");
+}
+
+@font-face {
+  font-family: 'Pixel Berry 08/84 Ltd.Edition';
+  src: url("/fonts/Pixel_Berry_08_84_Ltd.Edition.TTF");
+}
+
 .contentContainer{
   height: 910px;
 	overflow: hidden;

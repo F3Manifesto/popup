@@ -1,16 +1,22 @@
-import React from 'react'
-import { useRouter } from 'next/router'
-import s from './HomeTitle.module.scss'
+import React from "react";
+import { useRouter } from "next/router";
+import s from "./HomeTitle.module.scss";
 
 type Props = {
-  pageType?: number,
-}
+  pageType?: number;
+  isHomePage?: boolean;
+};
 
-const HomeContent: React.FC<Props> = ({ pageType = 'collection' }) => {
-  const { asPath } = useRouter()
+const HomeContent: React.FC<Props> = ({
+  pageType = "collection",
+  isHomePage = false,
+}) => {
+  const { asPath } = useRouter();
 
   return (
-    <div className={s.homeTitleContainer}>
+    <div
+      className={[s.homeTitleContainer, isHomePage ? s.homepage : ""].join(" ")}
+    >
       {
         <div className={s.titleWrapper}>
           <div className={s.title}>
@@ -19,7 +25,7 @@ const HomeContent: React.FC<Props> = ({ pageType = 'collection' }) => {
         </div>
       }
     </div>
-  )
-}
+  );
+};
 
-export default HomeContent
+export default HomeContent;

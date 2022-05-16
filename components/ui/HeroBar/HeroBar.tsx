@@ -23,7 +23,7 @@ const HeroBar: FC<Props> = ({
   const classes = classnames(styles.wrapper, className);
   return (
     <div className={[classes, styles.isHomePage].join(" ")}>
-      {setFilter ? (
+      {!isHomePage && setFilter ? (
         <div className={styles.filter}>
           <Filters
             filter={filter}
@@ -31,7 +31,9 @@ const HeroBar: FC<Props> = ({
             sortByChange={setSortBy}
           />
         </div>
-      ) : null}
+      ) : (
+        <div></div>
+      )}
       {isHomePage ? (
         <div className={styles.viewAllFashion}>
           <a className={styles.explore} href="/explore" target="_self">

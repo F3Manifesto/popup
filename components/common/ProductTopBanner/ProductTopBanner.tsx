@@ -1,10 +1,11 @@
 import { FC, useState } from "react";
-import { Banner } from "@components/ui";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import { TextSlider } from "..";
-import TextContent from "@components/ui/TextContent";
 import HomeTitle from "@components/ui/HomeTitle";
 import { HeroBar } from "@components/ui";
 import Container from "@components/ui/Container";
+import shuffle from "@lib/shuffle";
 import styles from "./ProductTopBanner.module.scss";
 
 interface Props {
@@ -26,19 +27,80 @@ const ProductTopBanner: FC<Props> = ({
   setFilter = () => {},
   setSortBy = () => {},
 }) => {
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 1,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
+
+  const banners = [
+    "/images/banners/banner1.png",
+    "/images/banners/banner2.png",
+    "/images/banners/banner3.png",
+    "/images/banners/banner4.png",
+    "/images/banners/banner5.png",
+    "/images/banners/banner6.png",
+  ];
+
+  const randomOrder = shuffle(banners);
+
   return (
     <div className={styles.wrapper}>
-      {/* <Banner> */}
-      <Container className={styles.homePageContainer}>
+      <Container
+        className={[
+          styles.homePageContainer,
+          isHomePage ? styles.homepage : "",
+        ].join(" ")}
+      >
         {isHomePage && (
-          <img
-            className={styles.headerImage}
-            src="/images/header.jpg"
-            alt="banner-header"
-          />
+          <div className={styles.carouselWrapper}>
+            <Carousel
+              autoPlay
+              autoPlaySpeed={10000}
+              arrows={false}
+              renderButtonGroupOutside={false}
+              renderDotsOutside={false}
+              slidesToSlide={1}
+              ssr
+              deviceType={"desktop"}
+              itemClass={styles.bannerItem}
+              responsive={responsive}
+              draggable={false}
+              swipeable={false}
+            >
+              {randomOrder.map((item) => {
+                return (
+                  <img
+                    src={item}
+                    style={{
+                      display: "block",
+                      height: "100%",
+                      margin: "auto",
+                      width: "100%",
+                    }}
+                  />
+                );
+              })}
+            </Carousel>
+          </div>
         )}
-        <div className={styles.overlay} />
-        <HomeTitle />
+
+        {!isHomePage && <div className={styles.overlay} />}
+        <HomeTitle isHomePage={isHomePage} />
         {showFilterbar && (
           <HeroBar
             isHomePage={isHomePage}
