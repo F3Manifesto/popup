@@ -11,6 +11,7 @@ interface Props {
   showSlider?: boolean;
   showFilterbar?: boolean;
   isHomePage?: boolean;
+  isExplorePage?: boolean;
   filter?: string;
   setFilter(value: string): void;
   setSortBy(sort: string): void;
@@ -20,6 +21,7 @@ const ProductTopBanner: FC<Props> = ({
   showSlider = false,
   showFilterbar = false,
   isHomePage = false,
+  isExplorePage = false,
   filter = "",
   setFilter = () => {},
   setSortBy = () => {},
@@ -40,6 +42,7 @@ const ProductTopBanner: FC<Props> = ({
         {showFilterbar && (
           <HeroBar
             isHomePage={isHomePage}
+            isExplorePage={isExplorePage}
             filter={filter || ""}
             setFilter={setFilter}
             setSortBy={setSortBy}
