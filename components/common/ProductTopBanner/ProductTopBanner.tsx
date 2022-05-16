@@ -73,6 +73,7 @@ const ProductTopBanner: FC<Props> = ({
         {isHomePage && (
           <div className={styles.carouselWrapper}>
             <Carousel
+              ssr
               autoPlay
               autoPlaySpeed={5000}
               arrows={false}
@@ -80,7 +81,6 @@ const ProductTopBanner: FC<Props> = ({
               renderButtonGroupOutside={false}
               renderDotsOutside={false}
               slidesToSlide={1}
-              ssr
               deviceType={"desktop"}
               itemClass={styles.bannerItem}
               responsive={responsive}
