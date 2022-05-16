@@ -125,7 +125,7 @@ export default function Home({
               setFilter={setFilter}
               setSortBy={setSortBy}
             />
-            <ProductTiles products={products} />
+            {/* <ProductTiles products={products} /> */}
             <Container>
               <GridContainer>
                 {filteredProducts.map((product, index) => {
