@@ -72,6 +72,7 @@ const ProductTopBanner: FC<Props> = ({
               autoPlay
               autoPlaySpeed={10000}
               arrows={false}
+              infinite={true}
               renderButtonGroupOutside={false}
               renderDotsOutside={false}
               slidesToSlide={1}
@@ -88,9 +89,10 @@ const ProductTopBanner: FC<Props> = ({
                     src={item}
                     style={{
                       display: "block",
-                      height: "100%",
+                      height: "57vw",
                       margin: "auto",
-                      width: "100%",
+                      width: "100vw",
+                      objectFit: "cover",
                     }}
                   />
                 );
@@ -111,7 +113,6 @@ const ProductTopBanner: FC<Props> = ({
           />
         )}
       </Container>
-      {/* </Banner> */}
       {showSlider && <TextSlider black={false} />}
     </div>
   );
