@@ -48,12 +48,12 @@ const ProductTopBanner: FC<Props> = ({
   };
 
   const banners = [
-    "/images/banners/banner1.png",
-    "/images/banners/banner2.png",
-    "/images/banners/banner3.png",
-    "/images/banners/banner4.png",
-    "/images/banners/banner5.png",
-    "/images/banners/banner6.png",
+    "/images/banners/bridgeshot.jpg",
+    "/images/banners/digiob.jpeg",
+    "/images/banners/modelfinal1.gif",
+    "/images/banners/skagefirl.gif",
+    "/images/banners/models2.png",
+    "/images/banners/whatisweb3.gif",
   ];
 
   const randomOrder = shuffle(banners);

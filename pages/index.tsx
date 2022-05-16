@@ -138,7 +138,7 @@ export default function Home({
                 </div>
               </div>
               <video loop autoPlay muted playsInline>
-                <source src="/Web Fashion Week.mp4" />
+                <source src="/tvscene.mp4" />
               </video>
             </section>
             <section className={styles.skateSection}>
@@ -146,7 +146,7 @@ export default function Home({
                 className={styles.youtubeFrame}
                 width="560"
                 height="315"
-                src="https://www.youtube.com/embed/XNoeBslYDL4?autoplay=1&mute=1&controls=0&playlist=DrXMso6lctE&loop=1"
+                src="https://www.youtube.com/watch?v=AWVYBE8r0Bg"
               ></iframe>
               <img src="/images/curves1.png" className={styles.curves1} />
               <img src="/images/curves2.png" className={styles.curves2} />
