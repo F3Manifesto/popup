@@ -106,7 +106,6 @@ const ProductTopBanner: FC<Props> = ({
                     style={{
                       display: "block",
                       height: "57vw",
-                      margin: "auto",
                       width: "100vw",
                       objectFit: "cover",
                     }}
