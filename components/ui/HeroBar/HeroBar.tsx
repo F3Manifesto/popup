@@ -22,7 +22,13 @@ const HeroBar: FC<Props> = ({
 }) => {
   const classes = classnames(styles.wrapper, className);
   return (
-    <div className={[classes, styles.isHomePage].join(" ")}>
+    <div
+      className={[
+        classes,
+        isHomePage ? styles.isHomePage : "",
+        isExplorePage ? styles.isExplorePage : "",
+      ].join(" ")}
+    >
       {!isHomePage && setFilter ? (
         <div className={styles.filter}>
           <Filters

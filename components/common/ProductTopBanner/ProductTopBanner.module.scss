@@ -13,6 +13,12 @@
     &.homepage {
       padding-bottom: 0;
     }
+    
+    &.explorePage {
+      justify-content: flex-start;
+      height: 57vw;
+      padding-bottom: 0;
+    }
 
     @include lg-width {
       margin-bottom: 0px;

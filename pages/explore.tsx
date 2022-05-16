@@ -120,7 +120,7 @@ export default function Home({
           <>
             <ProductTopBanner
               showFilterbar
-              isExplorePage
+              isExplorePage={true}
               filter={filter}
               setFilter={setFilter}
               setSortBy={setSortBy}

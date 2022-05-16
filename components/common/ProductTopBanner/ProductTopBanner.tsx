@@ -64,8 +64,12 @@ const ProductTopBanner: FC<Props> = ({
         className={[
           styles.homePageContainer,
           isHomePage ? styles.homepage : "",
+          isExplorePage ? styles.explorePage : "",
         ].join(" ")}
       >
+        {isExplorePage && (
+          <img src="/images/header.jpg" className={styles.headerImage} />
+        )}
         {isHomePage && (
           <div className={styles.carouselWrapper}>
             <Carousel
@@ -102,7 +106,7 @@ const ProductTopBanner: FC<Props> = ({
         )}
 
         {!isHomePage && <div className={styles.overlay} />}
-        <HomeTitle isHomePage={isHomePage} />
+        <HomeTitle isHomePage={isHomePage} isExplorePage={isExplorePage} />
         {showFilterbar && (
           <HeroBar
             isHomePage={isHomePage}
