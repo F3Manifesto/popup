@@ -137,14 +137,14 @@
 .skateSection {
   position: relative;
   background-color: #FF6A31;
-  height: 52.76vw;
+  height: 70vw;
 
   .youtubeFrame {
     position: absolute;
     width: 50.88vw;
     height: 31.92vw;
     left: 37.34vw;
-    top: 5.88vw;
+    top: 15.88vw;
   }
 
   .curves1 {
@@ -152,7 +152,7 @@
     width: 23.54vw;
     height: 21.24vw;
     left: 20.46vw;
-    top: 26.85vw;
+    top: 36.85vw;
     pointer-events: none;
   }
 
@@ -161,7 +161,7 @@
     width: 12.09vw;
     height: 8.65vw;
     left: 85.03vw;
-    top: 2.49vw;
+    top: 12.49vw;
     pointer-events: none;
   }
 
@@ -169,7 +169,7 @@
     position: absolute;
     width: 26.61vw;
     left: 6.61vw;
-    top: 6.25vw;
+    top: 16.25vw;
 
     font-family: "Skateparx Filled";
     font-size: 5.2vw;
@@ -187,7 +187,7 @@
     position: absolute;
     width: 21.92vw;
     left: 73.38vw;
-    top: 39.94vw;
+    top: 49.94vw;
     font-family: "Skateparx Filled";
     font-size: 5.2vw;
     line-height: 115%;
@@ -197,6 +197,33 @@
     color: #000000;
     -webkit-text-stroke: 0.15vw #FFFFFF;
   }
+  // padding-top: 10vw;
+
+  @include lg-width {
+    height: 52.76vw;
+
+    .youtubeFrame {
+      top: 5.88vw;
+    }
+
+    .curves1 {
+      top: 26.85vw;
+    }
+
+    .curves2 {
+      top: 2.49vw;
+    }
+
+    .text1 {
+      top: 6.25vw;
+    }
+
+    .text2 {
+      top: 39.94vw;
+    }
+    
+  }
+
 }
 
 .vintageSection {
