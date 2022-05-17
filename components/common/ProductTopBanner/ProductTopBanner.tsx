@@ -1,6 +1,8 @@
 import { FC, useState } from "react";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+// import { Carousel } from "react-responsive-carousel";
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import { TextSlider } from "..";
 import HomeTitle from "@components/ui/HomeTitle";
@@ -73,7 +75,7 @@ const ProductTopBanner: FC<Props> = ({
         )}
         {isHomePage && (
           <div className={styles.carouselWrapper}>
-            <Carousel
+            {/* <Carousel
               infiniteLoop={true}
               showThumbs={false}
               showIndicators={false}
@@ -82,8 +84,8 @@ const ProductTopBanner: FC<Props> = ({
               autoPlay={true}
               stopOnHover={false}
               interval={10000}
-            >
-              {/* <Carousel
+            > */}
+            <Carousel
               // ssr
               autoPlay
               autoPlaySpeed={5000}
@@ -97,7 +99,7 @@ const ProductTopBanner: FC<Props> = ({
               responsive={responsive}
               draggable={false}
               swipeable={false}
-            > */}
+            >
               {randomOrder.map((item) => {
                 return (
                   <img
