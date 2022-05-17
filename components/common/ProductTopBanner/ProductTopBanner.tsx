@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 
 import { TextSlider } from "..";
 import HomeTitle from "@components/ui/HomeTitle";
