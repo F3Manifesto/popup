@@ -78,10 +78,10 @@ const ProductTopBanner: FC<Props> = ({
               showThumbs={false}
               showIndicators={false}
               showStatus={false}
-              showArrows={false}
+              showArrows={true}
               autoPlay={true}
               stopOnHover={false}
-              interval={1000}
+              interval={10000}
             >
               {/* <Carousel
               // ssr
