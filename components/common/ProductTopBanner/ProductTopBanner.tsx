@@ -53,10 +53,10 @@ const ProductTopBanner: FC<Props> = ({
   const banners = [
     "/images/banners/bridgeshot.jpg",
     "/images/banners/digiob.jpeg",
-    "/images/banners/modelfinal1.gif",
-    "/images/banners/skategirl.gif",
+    // "/images/banners/modelfinal1.gif",
+    // "/images/banners/skategirl.gif",
     "/images/banners/models2.png",
-    "/images/banners/whatisweb3.gif",
+    // "/images/banners/whatisweb3.gif",
   ];
 
   const randomOrder = banners;
