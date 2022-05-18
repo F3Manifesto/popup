@@ -2,7 +2,7 @@ import { CommerceProvider } from "@framework";
 import type { Page } from "@framework/common/get-all-pages";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
-import Footer from "../footer";
+import Footer from "../Footer";
 import Navbar from "../Navbar";
 import {
   AuthOptionsView,
