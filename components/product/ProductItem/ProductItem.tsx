@@ -24,29 +24,10 @@ const ProductItem: FC<Props> = ({
   imgProps,
   ...props
 }) => {
-  const { monaPrice, designers } = useMain();
+  const { monaPrice } = useMain();
 
-  const firstDesigner = designers.find((item: any) => {
-    const productDesigner: string | null = product.designers?.length
-      ? product.designers[0]?.toLowerCase()
-      : null;
-
-    return (
-      item.designerId?.toLowerCase() === productDesigner ||
-      item.newDesignerID?.toLowerCase() === productDesigner
-    );
-  });
-
-  const [isJson, setIsJson] = useState(false);
-  const [descContent, setDescContent] = useState(() => {
-    try {
-      setIsJson(true);
-      return JSON.parse(product.description);
-    } catch (e) {
-      setIsJson(false);
-      return product.description;
-    }
-  });
+  console.log("monaPrice: ", monaPrice);
+  console.log("image: ", product.images[0].url || placeholderImg);
 
   return (
     <div className={s.productItemContainer}>
@@ -56,36 +37,6 @@ const ProductItem: FC<Props> = ({
             <span>{product.name}</span>
           </h3>
         </a>
-
-        {/* {firstDesigner &&
-          <a
-            href={`https://designers.digitalax.xyz/designers/${firstDesigner.designerId}`}
-            target='_blank'
-            className={s.designer}
-          >
-            <div className={s.profilePicContainer}>
-              <Image
-                alt={firstDesigner.designerId || 'designer'}
-                className={s.designerImage}
-                src={firstDesigner.image_url || placeholderImg}
-                height={30}
-                width={30}
-                quality="85"
-                layout="responsive"
-                // {...imgProps}
-              />
-            </div>
-            <span>{firstDesigner.designerId}</span>
-          </a>
-        } */}
-
-        {/* <Link 
-          href={`/product/${product.slug}`}
-          {...props}
-        >
-        <a
-          className={cn(s.root, className)}          
-        > */}
         <a
           className={cn(s.root, className)}
           href={`/product/${product.slug}`}
@@ -98,6 +49,7 @@ const ProductItem: FC<Props> = ({
                   alt={product.name || "Product Image"}
                   className={s.productImage}
                   src={product.images[0].url || placeholderImg}
+                  placeholder="blur"
                   height={540}
                   width={540}
                   quality="85"

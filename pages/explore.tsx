@@ -1,24 +1,17 @@
 import { useState } from "react";
 import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 import { getConfig } from "@framework/api";
 import getAllProducts from "@framework/product/get-all-products";
 
-import { Layout, ProductTiles } from "@components/common";
+import { Layout } from "@components/common";
 import { Container, GridContainer } from "@components/ui";
 import { ProductItem } from "@components/product";
 import ProductTopBanner from "@components/common/ProductTopBanner";
 
 import { filterProducts } from "@lib/filter";
-import { ESPA_BACKEND_API_URL, ESPA_BACKEND_API_KEY } from "@constants/index";
 
 import { getDripMarketplaceOffers } from "services/api.service";
-
-const endpoint = `${ESPA_BACKEND_API_URL}save-drip-emails`;
-const API_KEY = ESPA_BACKEND_API_KEY;
 
 export async function getStaticProps({
   preview,
@@ -67,47 +60,12 @@ export async function getStaticProps({
   };
 }
 
-export default function Home({
+export default function ExplorePage({
   products,
   dripMarketplaceOffers,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const [email, setEmail] = useState("");
   const [filter, setFilter] = useState("");
   const [sortBy, setSortBy] = useState("");
-
-  const addEmail = () => {
-    fetch(endpoint, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "X-API-KEY": API_KEY,
-      },
-      body: JSON.stringify({ email }),
-    }).then((res) => {
-      if (res.status === 200) {
-        toast.success("You're successfully registered!", {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      } else {
-        toast.error("Email already exists!", {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      }
-    });
-  };
 
   const filteredProducts = filterProducts(products, filter, sortBy) || [];
   // console.log('dripMarketplaceOffer: ', dripMarketplaceOffers)
@@ -120,7 +78,7 @@ export default function Home({
           <>
             <ProductTopBanner
               showFilterbar
-              isExplorePage
+              isExplorePage={true}
               filter={filter}
               setFilter={setFilter}
               setSortBy={setSortBy}
@@ -145,9 +103,8 @@ export default function Home({
           </>
         </div>
       </div>
-      <ToastContainer />
     </>
   );
 }
-Home.Layout = Layout;
-// export default Home
+ExplorePage.Layout = Layout;
+// export default ExplorePage

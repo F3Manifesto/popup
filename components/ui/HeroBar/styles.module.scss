@@ -24,6 +24,21 @@
 
     @include lg-width {
       flex-direction: row;
+      width: 90vw;
+      margin: 5vw 5vw;
+    }
+  }
+
+  &.isExplorePage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+
+    border-bottom: 1px solid var(--blue);
+
+    @include lg-width {
+      flex-direction: row;
     }
   }
 

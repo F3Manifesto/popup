@@ -10,13 +10,25 @@
     justify-content: flex-end;
     padding-bottom: 50px;
 
+    &.homepage {
+      padding-bottom: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    
+    &.explorePage {
+      justify-content: flex-start;
+      height: 57vw;
+      padding-bottom: 0;
+    }
+
     @include lg-width {
       margin-bottom: 0px;
       padding: 1.5rem 5rem 7rem 5rem;
-    }
 
-    &.homepage {
-      padding-bottom: 0;
+      &.homepage {
+        padding: 0;
+      }  
     }
 
     .bannerItem {
