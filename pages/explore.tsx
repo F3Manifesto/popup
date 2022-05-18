@@ -67,7 +67,7 @@ export async function getStaticProps({
   };
 }
 
-export default function Home({
+export default function ExplorePage({
   products,
   dripMarketplaceOffers,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -149,5 +149,5 @@ export default function Home({
     </>
   );
 }
-Home.Layout = Layout;
-// export default Home
+ExplorePage.Layout = Layout;
+// export default ExplorePage
