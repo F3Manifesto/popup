@@ -48,6 +48,8 @@ const ProductItem: FC<Props> = ({
     }
   });
 
+  console.log("image: ", product.images[0].url || placeholderImg);
+
   return (
     <div className={s.productItemContainer}>
       <div className={s.productContent}>
@@ -98,6 +100,7 @@ const ProductItem: FC<Props> = ({
                   alt={product.name || "Product Image"}
                   className={s.productImage}
                   src={product.images[0].url || placeholderImg}
+                  placeholder="blur"
                   height={540}
                   width={540}
                   quality="85"

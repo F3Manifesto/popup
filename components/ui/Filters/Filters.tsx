@@ -59,6 +59,7 @@ const Filters: FC<Props> = ({ filter, filterChange, sortByChange }) => {
           <div
             className={styles.sortInput}
             onClick={() => {
+              console.log("clicked!!!: ", showFilters);
               setShowFilters(!showFilters);
             }}
           >

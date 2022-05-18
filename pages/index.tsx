@@ -33,45 +33,44 @@ export async function getStaticProps({
     preview,
   });
 
-  const { dripMarketplaceOffers } = await getDripMarketplaceOffers();
+  // const { dripMarketplaceOffers } = await getDripMarketplaceOffers();
 
-  console.log("dripMarketplaceOffers: ", dripMarketplaceOffers);
+  // console.log("dripMarketplaceOffers: ", dripMarketplaceOffers);
 
-  const wrappedProducts = products.map((item) => {
-    const collectionId = item?.slug?.split("-")[1];
-    if (collectionId) {
-      const foundDripItem = dripMarketplaceOffers.find(
-        (dripItem: any) => dripItem?.id === collectionId
-      );
+  // const wrappedProducts = products.map((item) => {
+  //   const collectionId = item?.slug?.split("-")[1];
+  //   if (collectionId) {
+  //     const foundDripItem = dripMarketplaceOffers.find(
+  //       (dripItem: any) => dripItem?.id === collectionId
+  //     );
 
-      if (foundDripItem && foundDripItem != undefined) {
-        return {
-          ...item,
-          amountSold: foundDripItem.amountSold,
-          startTime: foundDripItem.startTime,
-          endTime: foundDripItem.endTime,
-          rarity: foundDripItem.garmentCollection?.rarity,
-        };
-      }
-    }
+  //     if (foundDripItem && foundDripItem != undefined) {
+  //       return {
+  //         ...item,
+  //         amountSold: foundDripItem.amountSold,
+  //         startTime: foundDripItem.startTime,
+  //         endTime: foundDripItem.endTime,
+  //         rarity: foundDripItem.garmentCollection?.rarity,
+  //       };
+  //     }
+  //   }
 
-    return item;
-  });
+  //   return item;
+  // });
 
   return {
     props: {
-      products: wrappedProducts,
-      dripMarketplaceOffers,
-      // pages,
+      // products: wrappedProducts,
+      // dripMarketplaceOffers,
+      // // pages,
     },
     revalidate: 14400,
   };
 }
 
-export default function Home({
-  products,
-  dripMarketplaceOffers,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({}: // products,
+// dripMarketplaceOffers,
+InferGetStaticPropsType<typeof getStaticProps>) {
   const [email, setEmail] = useState("");
   const [filter, setFilter] = useState("");
   const [sortBy, setSortBy] = useState("");
