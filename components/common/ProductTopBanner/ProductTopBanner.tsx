@@ -86,7 +86,7 @@ const ProductTopBanner: FC<Props> = ({
               interval={10000}
             > */}
             <Carousel
-              // ssr
+              ssr
               autoPlay
               autoPlaySpeed={5000}
               arrows={false}
@@ -94,7 +94,7 @@ const ProductTopBanner: FC<Props> = ({
               renderButtonGroupOutside={false}
               renderDotsOutside={false}
               slidesToSlide={1}
-              // deviceType={"desktop"}
+              deviceType={"desktop"}
               itemClass={styles.bannerItem}
               responsive={responsive}
               draggable={false}
