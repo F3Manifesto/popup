@@ -2,7 +2,7 @@ import { CommerceProvider } from "@framework";
 import type { Page } from "@framework/common/get-all-pages";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
-import Footer from "../Footer/Footer";
+import Footer from "../footer";
 import Navbar from "../Navbar";
 import {
   AuthOptionsView,
@@ -95,7 +95,7 @@ const CheckoutLayout: FC<Props> = ({
         {modalView === "CHECKOUT_WARNING" && <CheckoutWarning />}
         {modalView === "CRYPTO_SUCCESS_VIEW" && <CryptoSuccessView />}
       </Modal>
-      <Footer pages={pageProps.pages} />
+      <Footer />
     </CommerceProvider>
   );
 };
