@@ -1,9 +1,6 @@
 import { useState } from "react";
 import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 import { getConfig } from "@framework/api";
 import getAllProducts from "@framework/product/get-all-products";
 
@@ -106,7 +103,6 @@ export default function ExplorePage({
           </>
         </div>
       </div>
-      <ToastContainer />
     </>
   );
 }
