@@ -52,7 +52,8 @@ const ProductTopBanner = ({
   const banners = [
     "/images/banners/bridgeshot.jpg",
     "/images/banners/modelfinal1.gif",
-    "/images/banners/skagefirl.gif",
+    "/images/banners/encrypted2.png",
+    "/images/banners/skategirl.gif",
     "/images/banners/whatisweb3.gif",
     "/images/banners/snarky1.png",
     "/images/banners/explore.png",
