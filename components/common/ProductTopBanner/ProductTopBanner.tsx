@@ -70,7 +70,7 @@ const ProductTopBanner: FC<Props> = ({
           <div className={styles.carouselWrapper}>
             <Carousel
               autoPlay
-              autoPlaySpeed={10000}
+              autoPlaySpeed={5000}
               arrows={false}
               renderButtonGroupOutside={false}
               renderDotsOutside={false}

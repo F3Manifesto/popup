@@ -51,11 +51,11 @@ const ProductTopBanner = ({
 
   const banners = [
     "/images/banners/bridgeshot.jpg",
-    "/images/banners/digiob.jpeg",
     "/images/banners/modelfinal1.gif",
-    "/images/banners/skategirl.gif",
-    "/images/banners/models2.png",
+    "/images/banners/skagefirl.gif",
     "/images/banners/whatisweb3.gif",
+    "/images/banners/snarky1.png",
+    "/images/banners/explore.png",
   ];
 
   const randomOrder = banners;
@@ -82,7 +82,7 @@ const ProductTopBanner = ({
               showArrows={false}
               autoPlay={true}
               stopOnHover={false}
-              interval={10000}
+              interval={5000}
             >
               {randomOrder.map((item) => {
                 return (
