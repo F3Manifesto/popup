@@ -284,15 +284,23 @@ const ProductView: FC<Props> = ({ product }) => {
                               : onClickZoomOut(i)
                           }
                         >
-                          <Image
-                            className={s.img}
-                            src={image.url!}
-                            alt={image.alt || "Product Image"}
-                            width={780}
-                            height={1000}
-                            priority={i === 0}
-                            quality="85"
-                          />
+                          {zoomMedia === i ? (
+                            <img
+                              className={s.img2}
+                              src={image.url!}
+                              alt={image.alt || "Product Image"}
+                            />
+                          ) : (
+                            <Image
+                              className={s.img}
+                              src={image.url!}
+                              alt={image.alt || "Product Image"}
+                              width={780}
+                              height={1000}
+                              priority={i === 0}
+                              quality="85"
+                            />
+                          )}
                         </div>
                       ))}
                     </ProductSlider>
@@ -355,7 +363,8 @@ const ProductView: FC<Props> = ({ product }) => {
                                 setChoices((choices) => {
                                   return {
                                     ...choices,
-                                    [opt.displayName.toLowerCase()]: v.label.toLowerCase(),
+                                    [opt.displayName.toLowerCase()]:
+                                      v.label.toLowerCase(),
                                   };
                                 });
                               }}
