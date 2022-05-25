@@ -33,6 +33,10 @@
   }
 }
 
+.link {
+  font-size: 12px;
+}
+
 .link:hover {
   @apply text-yellow;
   opacity: 0.8;
