@@ -16,6 +16,11 @@ const Navbar: FC = () => (
           </a>
         </div>
         <nav className={`${s.navItems} hidden ml-6 space-x-6 lg:block`}>
+          <Link href="https:/f3manifesto.xyz/">
+            <a className={s.link} target="_blank">
+              Home Port
+            </a>
+          </Link>
           <Link href="https://market.f3manifesto.xyz/">
             <a className={s.link} target="_blank">
               Digital Fashion Market
