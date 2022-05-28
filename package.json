@@ -57,6 +57,7 @@
     "sass": "^1.32.8",
     "shopify-buy": "^2.11.0",
     "shortid": "^2.2.16",
+    "swiper": "^6.8.4",
     "swr": "^0.4.0",
     "tabbable": "^5.1.5",
     "tailwindcss": "^2.0.3",

@@ -1,9 +1,23 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styles from "./styles.module.scss";
 import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 
 import { Layout } from "@components/common";
 import ProductTopBanner from "@components/common/ProductTopBanner";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation } from "swiper";
+
+SwiperCore.use([Navigation]);
+
+const stickyTipData = [
+  "/images/sticky-tips/tip1.mp4",
+  "/images/sticky-tips/tip1.mp4",
+  "/images/sticky-tips/tip1.mp4",
+  "/images/sticky-tips/tip1.mp4",
+  "/images/sticky-tips/tip1.mp4",
+  "/images/sticky-tips/tip1.mp4",
+];
 
 export async function getStaticProps({
   preview,
@@ -20,6 +34,9 @@ export default function Home({}: InferGetStaticPropsType<
 >) {
   const [filter, setFilter] = useState("");
   const [sortBy, setSortBy] = useState("");
+
+  const navigationPrevRef = useRef(null);
+  const navigationNextRef = useRef(null);
 
   return (
     <>
@@ -68,6 +85,68 @@ export default function Home({}: InferGetStaticPropsType<
                 </div>
               </div>
               <div className={styles.text2}>Indie Series</div>
+            </section>
+            <section className={styles.stickyTipSection}>
+              <img src="/images/curves1.png" className={styles.curves1} />
+              <div className={styles.swiperWrapper}>
+                <Swiper
+                  spaceBetween={3}
+                  slidesPerView={3}
+                  navigation={{
+                    prevEl: navigationPrevRef.current,
+                    nextEl: navigationNextRef.current,
+                  }}
+                  onSwiper={(swiper) => {
+                    // Delay execution for the refs to be defined
+                    setTimeout(() => {
+                      // Override prevEl & nextEl now that refs are defined
+                      swiper.params.navigation.prevEl =
+                        navigationPrevRef.current;
+                      swiper.params.navigation.nextEl =
+                        navigationNextRef.current;
+
+                      // Re-init navigation
+                      swiper.navigation.destroy();
+                      swiper.navigation.init();
+                      swiper.navigation.update();
+                    });
+                  }}
+                  onSlideChange={() => console.log("slide change")}
+                  // onSwiper={(swiper) => console.log(swiper)}
+                >
+                  {stickyTipData.map((item, index) => {
+                    return (
+                      <SwiperSlide key={index}>
+                        <div className={styles.video}>
+                          <video autoPlay muted loop playsInline>
+                            <source src={item} type="video/mp4" />
+                          </video>
+                        </div>
+                      </SwiperSlide>
+                    );
+                  })}
+                </Swiper>
+              </div>
+              <div className={styles.buttonWrapper}>
+                <div className={styles.container}>
+                  <button ref={navigationPrevRef}>
+                    <img
+                      src="/images/backward-button.png"
+                      className={styles.backButton}
+                    />
+                  </button>
+                  <button ref={navigationNextRef}>
+                    <img
+                      src="/images/forward-button.png"
+                      className={styles.nextButton}
+                    />
+                  </button>
+                </div>
+              </div>
+              <div className={styles.text1}>
+                STICKY TIPS
+                <div>from our kitchEN</div>
+              </div>
             </section>
             <section className={styles.vintageSection}>
               <img src="/images/header.jpg" />
