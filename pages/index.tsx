@@ -11,12 +11,12 @@ import SwiperCore, { Navigation } from "swiper";
 SwiperCore.use([Navigation]);
 
 const stickyTipData = [
-  "/images/sticky-tips/tip1.mp4",
-  "/images/sticky-tips/tip1.mp4",
-  "/images/sticky-tips/tip1.mp4",
-  "/images/sticky-tips/tip1.mp4",
-  "/images/sticky-tips/tip1.mp4",
-  "/images/sticky-tips/tip1.mp4",
+  "https://www.youtube.com/embed/_FCm_g-96hs",
+  "https://www.youtube.com/embed/_FCm_g-96hs",
+  "https://www.youtube.com/embed/_FCm_g-96hs",
+  "https://www.youtube.com/embed/_FCm_g-96hs",
+  "https://www.youtube.com/embed/_FCm_g-96hs",
+  "https://www.youtube.com/embed/_FCm_g-96hs",
 ];
 
 export async function getStaticProps({
@@ -118,9 +118,15 @@ export default function Home({}: InferGetStaticPropsType<
                     return (
                       <SwiperSlide key={index}>
                         <div className={styles.video}>
-                          <video autoPlay muted loop playsInline>
+                          <iframe
+                            className={styles.youtubeFrame}
+                            width="560"
+                            height="315"
+                            src={`${item}?autoplay=1&mute=1&controls=0&loop=1`}
+                          ></iframe>
+                          {/* <video autoPlay muted loop playsInline>
                             <source src={item} type="video/mp4" />
-                          </video>
+                          </video> */}
                         </div>
                       </SwiperSlide>
                     );
