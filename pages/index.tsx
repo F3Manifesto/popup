@@ -11,12 +11,8 @@ import SwiperCore, { Navigation } from "swiper";
 SwiperCore.use([Navigation]);
 
 const stickyTipData = [
-  "https://www.youtube.com/embed/_FCm_g-96hs",
-  "https://www.youtube.com/embed/_FCm_g-96hs",
-  "https://www.youtube.com/embed/_FCm_g-96hs",
-  "https://www.youtube.com/embed/_FCm_g-96hs",
-  "https://www.youtube.com/embed/_FCm_g-96hs",
-  "https://www.youtube.com/embed/_FCm_g-96hs",
+  "https://www.youtube.com/watch?v=WMZ-qIL1KU8",
+  "https://www.youtube.com/watch?v=6c4AEXVM8zw",
 ];
 
 export async function getStaticProps({
