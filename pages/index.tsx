@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import styles from "./styles.module.scss";
 import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 
@@ -11,9 +11,33 @@ import SwiperCore, { Navigation } from "swiper";
 SwiperCore.use([Navigation]);
 
 const stickyTipData = [
-  "https://www.youtube.com/watch?v=WMZ-qIL1KU8",
-  "https://www.youtube.com/watch?v=6c4AEXVM8zw",
+  "https://www.youtube.com/embed/WMZ-qIL1KU8",
+  "https://www.youtube.com/embed/6c4AEXVM8zw",
 ];
+
+function useWindowDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: 0,
+    height: 0,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      const { innerWidth: width, innerHeight: height } = window;
+      console.log("width: ", width);
+      setWindowDimensions({
+        width,
+        height,
+      });
+    }
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return windowDimensions;
+}
 
 export async function getStaticProps({
   preview,
@@ -28,6 +52,14 @@ export async function getStaticProps({
 export default function Home({}: InferGetStaticPropsType<
   typeof getStaticProps
 >) {
+  const screenWidth = useWindowDimensions().width;
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    screenWidth > 707 ? setIsMobile(false) : setIsMobile(true);
+  }, [screenWidth]);
+
   const [filter, setFilter] = useState("");
   const [sortBy, setSortBy] = useState("");
 
@@ -87,7 +119,7 @@ export default function Home({}: InferGetStaticPropsType<
               <div className={styles.swiperWrapper}>
                 <Swiper
                   spaceBetween={3}
-                  slidesPerView={3}
+                  slidesPerView={isMobile ? 1 : 3}
                   navigation={{
                     prevEl: navigationPrevRef.current,
                     nextEl: navigationNextRef.current,
