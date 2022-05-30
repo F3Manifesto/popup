@@ -229,7 +229,7 @@
 .stickyTipSection {
   position: relative;
   background-color: #FF6A31;
-  height: calc(70vw + 300px);
+  height: calc(70vw + 150px);
 
   .curves1 {
     position: absolute;
@@ -293,7 +293,14 @@
       // width: 20vw;
 
       iframe {
-        width: 80%;
+        width: 70%;
+        height: 40vw;
+
+        @include md-width {
+          width: 80%;
+          height: unset;
+        }
+        
         // height: fit-content;
       }
     }
@@ -310,7 +317,7 @@
     justify-content: center;
 
     .container {
-      width: 200px;
+      width: 150px;
       display: flex;
       justify-content: space-between;
 
@@ -324,8 +331,8 @@
     }
   }
 
-  @include lg-width {
-    height: calc(52.76vw + 200px);
+  @include md-width {
+    height: calc(52.76vw + 50px);
 
 
     .curves1 {
