@@ -58,8 +58,7 @@
   }
 
   video {
-   // width: 100vw;
-   width: 100%;
+    width: 100vw;
     height: 80vw;
     margin-top: 20px;
     object-fit: cover;
@@ -125,9 +124,8 @@
 
     video {
       position: absolute;
-      width: 100%;
-     // width: 39.01vw;
-     // height: 28.07vw;
+      width: 39.01vw;
+      height: 28.07vw;
       left: 61vw;
       top: 17.18vw;
       object-fit: cover;
@@ -189,8 +187,8 @@
 
   .youtubeFrame {
     position: absolute;
-    width: 50.88vw;
-    height: 31.92vw;
+    width: 80vw;
+    height: 51.19vw;
     left: 37.34vw;
     top: 15.88vw;
   }
