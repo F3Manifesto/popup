@@ -4,17 +4,17 @@
   position: relative;
   height: fit-content;
 
-  .windowWrapper  {
+  .windowWrapper {
     margin-left: 10px;
     margin-right: 10px;
     width: calc(100% - 20px);
     left: 19.9vw;
     top: 7.8vw;
-    border: 1px solid #4E4AFF;
+    border: 1px solid #4e4aff;
 
     .titleBar {
       height: 30px;
-      border-bottom: 0.05vw solid #4E4AFF;
+      border-bottom: 0.05vw solid #4e4aff;
       display: flex;
       justify-content: flex-end;
 
@@ -25,8 +25,8 @@
         line-height: 140%;
         display: flex;
         align-items: center;
-        
-        color: #4E4AFF;
+
+        color: #4e4aff;
         cursor: pointer;
       }
     }
@@ -34,14 +34,14 @@
     .text1 {
       width: 100%;
       padding: 10px;
-      
+
       font-family: 'Pixel Berry 08/84 Ltd.Edition';
       font-size: 14px;
       line-height: 140%;
       display: flex;
       align-items: center;
-      
-      color: #4E4AFF;
+
+      color: #4e4aff;
     }
 
     .text2 {
@@ -52,8 +52,8 @@
       line-height: 140%;
       display: flex;
       align-items: center;
-      
-      color: #4E4AFF;
+
+      color: #4e4aff;
     }
   }
 
@@ -73,14 +73,14 @@
       height: 29.42vw;
       left: 19.9vw;
       top: 7.8vw;
-      border: 0.05vw solid #4E4AFF;
-  
+      border: 0.05vw solid #4e4aff;
+
       .titleBar {
         height: 2.8vw;
-        border-bottom: 0.05vw solid #4E4AFF;
+        border-bottom: 0.05vw solid #4e4aff;
         display: flex;
         justify-content: flex-end;
-  
+
         a {
           padding: 1vw;
           font-family: 'Pixel Berry 08/84 Ltd.Edition';
@@ -88,41 +88,40 @@
           line-height: 140%;
           display: flex;
           align-items: center;
-          
-          color: #4E4AFF;
+
+          color: #4e4aff;
           cursor: pointer;
         }
       }
-  
+
       .text1 {
         margin-top: 3.12vw;
         margin-left: 7.08vw;
-  
+
         font-family: 'Pixel Berry 08/84 Ltd.Edition';
         font-size: 1.04vw;
         line-height: 140%;
         display: flex;
         align-items: center;
-        
-        color: #4E4AFF;
+
+        color: #4e4aff;
       }
-  
+
       .text2 {
         margin-top: 4.68vw;
         margin-left: 6.4vw;
-  
+
         width: 18.07vw;
         font-family: 'Pixel Berry 08/84 Ltd.Edition';
         font-size: 1.56vw;
         line-height: 140%;
         display: flex;
         align-items: center;
-        
-        color: #4E4AFF;
+
+        color: #4e4aff;
       }
-  
     }
-  
+
     video {
       position: absolute;
       width: 39.01vw;
@@ -136,8 +135,55 @@
 
 .skateSection {
   position: relative;
-  background-color: #FF6A31;
+  background-color: #ff6a31;
   height: 70vw;
+
+  @media (max-width: 576px) {
+    height: 100vw !important;
+
+    .text1 {
+      display: none;
+    }
+
+    .mobileText1 {
+      width: 80vw;
+      position: absolute;
+      top: 10vw;
+      left: 10vw;
+      display: block !important;
+      font-family: 'Skateparx Filled';
+      font-size: 5.2vw;
+      line-height: 115%;
+
+      color: #000000;
+      -webkit-text-stroke: 0.15vw #ffffff;
+
+      div {
+        color: transparent;
+      }
+    }
+
+    .youtubeFrame {
+      width: 80vw !important;
+      height: 51.19vw !important;
+      left: 10vw !important;
+      top: 25vw !important;
+    }
+
+    .curves1 {
+      left: 5vw !important;
+      top: 65vw !important;
+    }
+
+    .curves2 {
+      right: 5vw !important;
+      top: 20vw !important;
+    }
+
+    .text2 {
+      top: 80vw !important;
+    }
+  }
 
   .youtubeFrame {
     position: absolute;
@@ -165,18 +211,22 @@
     pointer-events: none;
   }
 
+  .mobileText1 {
+    display: none;
+  }
+
   .text1 {
     position: absolute;
     width: 26.61vw;
     left: 6.61vw;
     top: 16.25vw;
 
-    font-family: "Skateparx Filled";
+    font-family: 'Skateparx Filled';
     font-size: 5.2vw;
     line-height: 115%;
-    
+
     color: #000000;
-    -webkit-text-stroke: 0.15vw #FFFFFF;
+    -webkit-text-stroke: 0.15vw #ffffff;
 
     div {
       color: transparent;
@@ -188,14 +238,14 @@
     width: 21.92vw;
     left: 73.38vw;
     top: 49.94vw;
-    font-family: "Skateparx Filled";
+    font-family: 'Skateparx Filled';
     font-size: 5.2vw;
     line-height: 115%;
     display: flex;
     align-items: center;
-    
+
     color: #000000;
-    -webkit-text-stroke: 0.15vw #FFFFFF;
+    -webkit-text-stroke: 0.15vw #ffffff;
   }
   // padding-top: 10vw;
 
@@ -221,14 +271,12 @@
     .text2 {
       top: 39.94vw;
     }
-    
   }
-
 }
 
 .stickyTipSection {
   position: relative;
-  background-color: #FF6A31;
+  background-color: #ff6a31;
   height: calc(70vw + 150px);
 
   .curves1 {
@@ -246,12 +294,12 @@
     left: 6.61vw;
     top: 0vw;
 
-    font-family: "Skateparx Filled";
+    font-family: 'Skateparx Filled';
     font-size: 5.2vw;
     line-height: 115%;
-    
+
     color: #000000;
-    -webkit-text-stroke: 0.15vw #FFFFFF;
+    -webkit-text-stroke: 0.15vw #ffffff;
 
     div {
       color: transparent;
@@ -265,17 +313,16 @@
     width: 21.92vw;
     left: 73.38vw;
     top: 49.94vw;
-    font-family: "Skateparx Filled";
+    font-family: 'Skateparx Filled';
     font-size: 5.2vw;
     line-height: 115%;
     display: flex;
     align-items: center;
-    
+
     color: #000000;
-    -webkit-text-stroke: 0.15vw #FFFFFF;
+    -webkit-text-stroke: 0.15vw #ffffff;
   }
   // padding-top: 10vw;
-
 
   .swiperWrapper {
     position: absolute;
@@ -300,12 +347,12 @@
           width: 80%;
           height: 15vw;
         }
-        
+
         // height: fit-content;
       }
     }
   }
-  
+
   .buttonWrapper {
     z-index: 5;
     position: absolute;
@@ -334,7 +381,6 @@
   @include md-width {
     height: calc(52.76vw + 50px);
 
-
     .curves1 {
       // top: 26.85vw;
     }
@@ -346,9 +392,7 @@
     .text2 {
       top: 39.94vw;
     }
-    
   }
-
 }
 
 .vintageSection {
