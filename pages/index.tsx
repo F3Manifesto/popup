@@ -98,7 +98,7 @@ export default function Home({}: InferGetStaticPropsType<
                 className={styles.youtubeFrame}
                 width="560"
                 height="315"
-                src="https://www.youtube.com/embed/Hr0Tsa4jKvE?autoplay=1&mute=1&controls=0&loop=1"
+                src="https://www.youtube.com/embed/K9NMXDPTnvg?autoplay=1&mute=1&controls=0&loop=1"
               ></iframe>
               <img src="/images/curves1.png" className={styles.curves1} />
               <img src="/images/curves2.png" className={styles.curves2} />
