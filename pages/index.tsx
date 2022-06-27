@@ -1,42 +1,42 @@
-import { useState, useRef, useEffect } from 'react'
-import styles from './styles.module.scss'
-import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import { useState, useRef, useEffect } from "react";
+import styles from "./styles.module.scss";
+import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 
-import { Layout } from '@components/common'
-import ProductTopBanner from '@components/common/ProductTopBanner'
+import { Layout } from "@components/common";
+import ProductTopBanner from "@components/common/ProductTopBanner";
 
-import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Navigation } from 'swiper'
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation } from "swiper";
 
-SwiperCore.use([Navigation])
+SwiperCore.use([Navigation]);
 
 const stickyTipData = [
-  'https://www.youtube.com/embed/WMZ-qIL1KU8',
-  'https://www.youtube.com/embed/6c4AEXVM8zw',
-]
+  "https://www.youtube.com/embed/WMZ-qIL1KU8",
+  "https://www.youtube.com/embed/6c4AEXVM8zw",
+];
 
 function useWindowDimensions() {
   const [windowDimensions, setWindowDimensions] = useState({
     width: 0,
     height: 0,
-  })
+  });
 
   useEffect(() => {
     function handleResize() {
-      const { innerWidth: width, innerHeight: height } = window
-      console.log('width: ', width)
+      const { innerWidth: width, innerHeight: height } = window;
+      console.log("width: ", width);
       setWindowDimensions({
         width,
         height,
-      })
+      });
     }
-    handleResize()
+    handleResize();
 
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-  return windowDimensions
+  return windowDimensions;
 }
 
 export async function getStaticProps({
@@ -46,25 +46,25 @@ export async function getStaticProps({
   return {
     props: {},
     revalidate: 14400,
-  }
+  };
 }
 
 export default function Home({}: InferGetStaticPropsType<
   typeof getStaticProps
 >) {
-  const screenWidth = useWindowDimensions().width
+  const screenWidth = useWindowDimensions().width;
 
-  const [isMobile, setIsMobile] = useState(false)
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    screenWidth > 707 ? setIsMobile(false) : setIsMobile(true)
-  }, [screenWidth])
+    screenWidth > 707 ? setIsMobile(false) : setIsMobile(true);
+  }, [screenWidth]);
 
-  const [filter, setFilter] = useState('')
-  const [sortBy, setSortBy] = useState('')
+  const [filter, setFilter] = useState("");
+  const [sortBy, setSortBy] = useState("");
 
-  const navigationPrevRef = useRef(null)
-  const navigationNextRef = useRef(null)
+  const navigationPrevRef = useRef(null);
+  const navigationNextRef = useRef(null);
 
   return (
     <>
@@ -98,7 +98,7 @@ export default function Home({}: InferGetStaticPropsType<
                 className={styles.youtubeFrame}
                 width="560"
                 height="315"
-                src="https://www.youtube.com/embed/AWVYBE8r0Bg?autoplay=1&mute=1&controls=0&loop=1"
+                src="https://www.youtube.com/embed/Hr0Tsa4jKvE?autoplay=1&mute=1&controls=0&loop=1"
               ></iframe>
               <img src="/images/curves1.png" className={styles.curves1} />
               <img src="/images/curves2.png" className={styles.curves2} />
@@ -133,17 +133,17 @@ export default function Home({}: InferGetStaticPropsType<
                     setTimeout(() => {
                       // Override prevEl & nextEl now that refs are defined
                       swiper.params.navigation.prevEl =
-                        navigationPrevRef.current
+                        navigationPrevRef.current;
                       swiper.params.navigation.nextEl =
-                        navigationNextRef.current
+                        navigationNextRef.current;
 
                       // Re-init navigation
-                      swiper.navigation.destroy()
-                      swiper.navigation.init()
-                      swiper.navigation.update()
-                    })
+                      swiper.navigation.destroy();
+                      swiper.navigation.init();
+                      swiper.navigation.update();
+                    });
                   }}
-                  onSlideChange={() => console.log('slide change')}
+                  onSlideChange={() => console.log("slide change")}
                   // onSwiper={(swiper) => console.log(swiper)}
                 >
                   {stickyTipData.map((item, index) => {
@@ -161,7 +161,7 @@ export default function Home({}: InferGetStaticPropsType<
                           </video> */}
                         </div>
                       </SwiperSlide>
-                    )
+                    );
                   })}
                 </Swiper>
               </div>
@@ -183,7 +183,7 @@ export default function Home({}: InferGetStaticPropsType<
               </div>
               <div className={styles.text1}>
                 STICKY TIPS
-                <div>from our kitchEN</div>
+                <div>from our kitchen</div>
               </div>
             </section>
             <section className={styles.vintageSection}>
@@ -193,7 +193,7 @@ export default function Home({}: InferGetStaticPropsType<
         </div>
       </div>
     </>
-  )
+  );
 }
-Home.Layout = Layout
+Home.Layout = Layout;
 // export default Home
