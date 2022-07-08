@@ -107,8 +107,8 @@ export default function Home({}: InferGetStaticPropsType<
                 NYC <br />
                 Skate <br />
                 <div>
-                  Sticker ART <br />
-                  Street ART <br />
+                  Sticker art <br />
+                  Street art <br />
                   Streetwear <br />
                 </div>
               </div>
