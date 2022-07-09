@@ -57,6 +57,7 @@ const ProductTopBanner = ({
     "/images/banners/whatisweb3.gif",
     "/images/banners/snarky1.png",
     "/images/banners/explore.png",
+    "/images/banners/Artboard 2.png",
   ];
 
   const randomOrder = banners;
